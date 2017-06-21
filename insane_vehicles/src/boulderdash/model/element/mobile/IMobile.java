@@ -15,75 +15,75 @@ import fr.exia.showboard.IPawn;
  */
 public interface IMobile extends IPawn, IElement {
 
-    /**
-     * Move up.
-     */
-    void moveUp();
+	/**
+	 * Move up.
+	 */
+	void moveUp();
 
-    /**
-     * Move left.
-     */
-    void moveLeft();
+	/**
+	 * Move left.
+	 */
+	void moveLeft();
 
-    /**
-     * Move down.
-     */
-    void moveDown();
+	/**
+	 * Move down.
+	 */
+	void moveDown();
 
-    /**
-     * Move right.
-     */
-    void moveRight();
+	/**
+	 * Move right.
+	 */
+	void moveRight();
 
-    /**
-     * Do nothing.
-     */
-    void doNothing();
-    
-    void die();
+	/**
+	 * Do nothing.
+	 */
+	void doNothing();
 
-    /**
-     * Gets the x.
-     *
-     * @return the x
-     */
-    @Override
-    int getX();
+	void die();
 
-    /**
-     * Gets the y.
-     *
-     * @return the y
-     */
-    @Override
-    int getY();
+	/**
+	 * Gets the x.
+	 *
+	 * @return the x
+	 */
+	@Override
+	int getX();
 
-    /**
-     * Checks if is alive.
-     *
-     * @return the alive
-     */
-    Boolean isAlive();
+	/**
+	 * Gets the y.
+	 *
+	 * @return the y
+	 */
+	@Override
+	int getY();
 
-    /**
-     * Checks if the car crashed.
-     *
-     * @return the boolean
-     */
-    Boolean isCrashed();
-    
-    Boolean isWon();
-    
-    Boolean isLootable();
-    
-    Boolean isBlocked();
+	/**
+	 * Checks if is alive.
+	 *
+	 * @return the alive
+	 */
+	Boolean isAlive();
 
+	/**
+	 * Checks if the car crashed.
+	 *
+	 * @return the boolean
+	 */
+	Boolean isCrashed();
 
-    /*
-     * (non-Javadoc)
-     * @see fr.exia.showboard.IPawn#getPosition()
-     */
-    @Override
-    Point getPosition();
+	Boolean isWon();
+
+	Boolean isLootable();
+
+	Boolean isBlocked();
+
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see fr.exia.showboard.IPawn#getPosition()
+	 */
+	@Override
+	Point getPosition();
 
 }

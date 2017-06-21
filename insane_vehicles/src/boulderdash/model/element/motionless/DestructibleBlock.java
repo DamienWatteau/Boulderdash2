@@ -9,15 +9,15 @@ import boulderdash.model.element.Sprite;
  * @author Jade
  * @version 0.2
  */
-class DitchRightTurnLeft extends MotionlessElement {
+class DestructibleBlock extends MotionlessElement {
 
     /** The Constant SPRITE. */
-    private static final Sprite SPRITE = new Sprite('}', "DitchRightTurnLeft.jpg");
+    private static final Sprite SPRITE = new Sprite('O', "BlockDestructible.png");
 
     /**
      * Instantiates a new ditch.
      */
-    DitchRightTurnLeft() {
+    DestructibleBlock() {
         super(SPRITE, Permeability.BLOCKING);
     }
 }

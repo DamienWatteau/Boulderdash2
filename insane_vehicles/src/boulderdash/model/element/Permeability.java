@@ -8,16 +8,16 @@ package boulderdash.model.element;
  */
 public enum Permeability {
 
-    /** The blocking. */
-    BLOCKING,
-    /** The penetrable. */
-    WIN,
-    
-    KILLING,
-    
-    LOOTABLE,
-    
-    DISAPPEAR,
-    
-    PENETRABLE;
+	/** The blocking. */
+	BLOCKING,
+	/** The penetrable. */
+	WIN,
+
+	KILLING,
+
+	LOOTABLE,
+
+	DISAPPEAR,
+
+	PENETRABLE;
 }

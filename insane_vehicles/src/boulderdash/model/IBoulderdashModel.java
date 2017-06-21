@@ -15,7 +15,7 @@ public interface IBoulderdashModel {
      *
      * @return the road
      */
-    IRoad getRoad();
+    IMap getMap();
 
     /**
      * Gets the my vehicle.

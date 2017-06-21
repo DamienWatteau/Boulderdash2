@@ -11,7 +11,7 @@ import javax.swing.SwingUtilities;
 
 import boulderdash.controller.IOrderPerformer;
 import boulderdash.controller.UserOrder;
-import boulderdash.model.IRoad;
+import boulderdash.model.IMap;
 import boulderdash.model.element.mobile.IMobile;
 import fr.exia.showboard.BoardFrame;
 
@@ -23,8 +23,8 @@ import fr.exia.showboard.BoardFrame;
  */
 public class BoulderdashView implements Runnable, KeyListener, IBoulderdashView {
 
-	/** The Constant roadView. */
-	private static final int roadView = 20;
+	/** The Constant mapView. */
+	private static final int mapView = 20;
 
 	/** The Constant squareSize. */
 	private static final int squareSize = 30;
@@ -32,8 +32,8 @@ public class BoulderdashView implements Runnable, KeyListener, IBoulderdashView 
 	/** The Constant closeView. */
 	private Rectangle closeView;
 
-	/** The road. */
-	private IRoad road;
+	/** The map. */
+	private IMap map;
 
 	/** My vehicle. */
 	private IMobile myVehicle;
@@ -47,19 +47,19 @@ public class BoulderdashView implements Runnable, KeyListener, IBoulderdashView 
 	/**
 	 * Instantiates a new insane vehicles View.
 	 *
-	 * @param road
-	 *            the road
+	 * @param map
+	 *            the map
 	 * @param myVehicle
 	 *            the my vehicle
 	 * @throws IOException
 	 *             Signals that an I/O exception has occurred.
 	 */
-	public BoulderdashView(final IRoad road, final IMobile myVehicle) throws IOException {
-		this.setView(roadView);
-		this.setRoad(road);
+	public BoulderdashView(final IMap Map, final IMobile myVehicle) throws IOException {
+		this.setView(mapView);
+		this.setMap(map);
 		this.setMyVehicle(myVehicle);
 		this.getMyVehicle().getSprite().loadImage();
-		this.setCloseView(new Rectangle(0, this.getMyVehicle().getY(), this.getRoad().getWidth(), roadView));
+		this.setCloseView(new Rectangle(0, this.getMyVehicle().getY(), this.getMap().getWidth(), mapView));
 		SwingUtilities.invokeLater(this);
 	}
 
@@ -82,7 +82,7 @@ public class BoulderdashView implements Runnable, KeyListener, IBoulderdashView 
 	public final void run() {
 		final BoardFrame boardFrame = new BoardFrame("BoulderDash");
 		
-		boardFrame.setDimension(new Dimension(this.getRoad().getWidth(), this.getRoad().getHeight()));
+		boardFrame.setDimension(new Dimension(this.getMap().getWidth(), this.getMap().getHeight()));
 		boardFrame.setDisplayFrame(this.closeView);
 		boardFrame.setSize(this.closeView.width * squareSize, this.closeView.height * squareSize);
 		boardFrame.setLocationRelativeTo(null);
@@ -92,14 +92,14 @@ public class BoulderdashView implements Runnable, KeyListener, IBoulderdashView 
 		boardFrame.setFocusable(true);
 		boardFrame.setFocusTraversalKeysEnabled(false);
 
-		for (int x = 0; x < this.getRoad().getWidth(); x++) {
-			for (int y = 0; y < this.getRoad().getHeight(); y++) {
-				boardFrame.addSquare(this.road.getOnTheRoadXY(x, y), x, y);
+		for (int x = 0; x < this.getMap().getWidth(); x++) {
+			for (int y = 0; y < this.getMap().getHeight(); y++) {
+				boardFrame.addSquare(this.map.getOnTheMapXY(x, y), x, y);
 			}
 		}
 		boardFrame.addPawn(this.getMyVehicle());
 
-		this.getRoad().getObservable().addObserver(boardFrame.getObserver());
+		this.getMap().getObservable().addObserver(boardFrame.getObserver());
 		this.followMyVehicle();
 
 		boardFrame.setVisible(true);
@@ -108,22 +108,22 @@ public class BoulderdashView implements Runnable, KeyListener, IBoulderdashView 
 	}
 
 	/**
-	 * Prints the road and the player's vehicle in the console.
+	 * Prints the map and the player's vehicle in the console.
 	 *
 	 * @param yStart
 	 *            the y start
 	 */
 	public final void show(final int yStart) {
-		int y = yStart % this.getRoad().getHeight();
+		int y = yStart % this.getMap().getHeight();
 		for (int view = 0; view < this.getView(); view++) {
-			for (int x = 0; x < this.getRoad().getWidth(); x++) {
+			for (int x = 0; x < this.getMap().getWidth(); x++) {
 				if ((x == this.getMyVehicle().getX()) && (y == yStart)) {
 					System.out.print(this.getMyVehicle().getSprite().getConsoleImage());
 				} else {
-					System.out.print(this.getRoad().getOnTheRoadXY(x, y).getSprite().getConsoleImage());
+					System.out.print(this.getMap().getOnTheMapXY(x, y).getSprite().getConsoleImage());
 				}
 			}
-			y = (y + 1) % this.getRoad().getHeight();
+			y = (y + 1) % this.getMap().getHeight();
 			System.out.print("\n");
 		}
 	}
@@ -202,27 +202,27 @@ public class BoulderdashView implements Runnable, KeyListener, IBoulderdashView 
 	}
 
 	/**
-	 * Gets the road.
+	 * Gets the map.
 	 *
-	 * @return the road
+	 * @return the map
 	 */
-	private IRoad getRoad() {
-		return this.road;
+	private IMap getMap() {
+		return this.map;
 	}
 
 	/**
-	 * Sets the road.
+	 * Sets the map.
 	 *
-	 * @param road
-	 *            the new road
+	 * @param map
+	 *            the new map
 	 * @throws IOException
 	 *             Signals that an I/O exception has occurred.
 	 */
-	private void setRoad(final IRoad road) throws IOException {
-		this.road = road;
-		for (int x = 0; x < this.getRoad().getWidth(); x++) {
-			for (int y = 0; y < this.getRoad().getHeight(); y++) {
-				this.getRoad().getOnTheRoadXY(x, y).getSprite().loadImage();
+	private void setMap(final IMap map) throws IOException {
+		this.map = map;
+		for (int x = 0; x < this.getMap().getWidth(); x++){
+			for (int y = 0; y < this.getMap().getHeight(); y++) {
+				this.getMap().getOnTheMapXY(x, y).getSprite().loadImage();
 			}
 		}
 	}
