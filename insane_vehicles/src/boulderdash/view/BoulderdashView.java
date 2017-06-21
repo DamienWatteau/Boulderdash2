@@ -1,7 +1,9 @@
 package boulderdash.view;
 
 import java.awt.Dimension;
+import java.awt.Image;
 import java.awt.Rectangle;
+import java.awt.Toolkit;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.io.IOException;
@@ -86,6 +88,9 @@ public class BoulderdashView implements Runnable, KeyListener, IBoulderdashView 
 		boardFrame.setDisplayFrame(this.closeView);
 		boardFrame.setSize(this.closeView.width * squareSize, this.closeView.height * squareSize);
 		boardFrame.setLocationRelativeTo(null);
+		
+		Image icone = Toolkit.getDefaultToolkit().getImage("./images/app_icon.png");
+        boardFrame.setIconImage(icone);
 
 		boardFrame.setBackground(null);
 		boardFrame.addKeyListener(this);
