@@ -82,7 +82,7 @@ public class BoulderdashController implements IBoulderdashController, IOrderPerf
             }
             this.clearStackOrder();
 
-            this.getView().followMyVehicle();
+//            this.getView().followMyVehicle();
 
             if (this.getModel().getMyVehicle().isWon() == true) {
 

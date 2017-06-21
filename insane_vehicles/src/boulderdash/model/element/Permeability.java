@@ -17,5 +17,7 @@ public enum Permeability {
     
     LOOTABLE,
     
+    DISAPPEAR,
+    
     PENETRABLE;
 }
