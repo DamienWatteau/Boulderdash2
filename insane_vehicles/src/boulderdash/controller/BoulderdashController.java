@@ -47,21 +47,33 @@ public class BoulderdashController implements IBoulderdashController, IOrderPerf
      */
     @Override
     public final void play() throws InterruptedException {
-    	int gain = 0;
+        int score = 0;
         while (this.getModel().getMyVehicle().isAlive()) {
             Thread.sleep(speed);
             switch (this.getStackOrder()) {
             case RIGHT:
                 this.getModel().getMyVehicle().moveRight();
+                if (this.getModel().getMyVehicle().isBlocked() == true) {
+                    this.getModel().getMyVehicle().moveLeft();
+                }
                 break;
             case LEFT:
                 this.getModel().getMyVehicle().moveLeft();
+                if (this.getModel().getMyVehicle().isBlocked() == true) {
+                    this.getModel().getMyVehicle().moveRight();
+                }
                 break;
             case UP:
                 this.getModel().getMyVehicle().moveUp();
+                if (this.getModel().getMyVehicle().isBlocked() == true) {
+                    this.getModel().getMyVehicle().moveDown();
+                }
                 break;
             case DOWN:
                 this.getModel().getMyVehicle().moveDown();
+                if (this.getModel().getMyVehicle().isBlocked() == true) {
+                    this.getModel().getMyVehicle().moveUp();
+                }
                 break;
             case NOP:
             default:
@@ -70,21 +82,23 @@ public class BoulderdashController implements IBoulderdashController, IOrderPerf
             }
             this.clearStackOrder();
 
-            this.getView().followMyVehicle();
-            
+//            this.getView().followMyVehicle();
+
             if (this.getModel().getMyVehicle().isWon() == true) {
 
                 this.getView().displayMessage("YOU WIN");
                 System.exit(0);
 
             } else if (this.getModel().getMyVehicle().isLootable() == true) {
-            	gain++;
-            	System.out.println(gain);
+                score++;
+                System.out.println(score);
+
             }
 
         }
         this.getView().displayMessage("End of the Game");
         System.exit(0);
+
     }
     
     /*
