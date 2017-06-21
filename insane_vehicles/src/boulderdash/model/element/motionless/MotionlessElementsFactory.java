@@ -12,7 +12,7 @@ public abstract class MotionlessElementsFactory {
     private static final DitchRight          ditchRight          = new DitchRight();
 
     /** The Constant ditchLeft. */
-    private static final DitchLeft           ditchLeft           = new DitchLeft();
+    private static final Diamond           diamond           = new Diamond();
 
     /** The Constant ditchLeftTurnLeft. */
     private static final DitchLeftTurnLeft   ditchLeftTurnLeft   = new DitchLeftTurnLeft();
@@ -27,7 +27,7 @@ public abstract class MotionlessElementsFactory {
     private static final DitchRightTurnRight ditchRightTurnRight = new DitchRightTurnRight();
 
     /** The Constant TREE. */
-    private static final Tree                TREE                = new Tree();
+    private static final Limit                LIMIT                = new Limit();
 
     /** The Constant MACADAM. */
     private static final Way             WAY             = new Way();
@@ -40,14 +40,14 @@ public abstract class MotionlessElementsFactory {
      */
     private static MotionlessElement[]       motionlessElements  = {
         ditchRight,
-        ditchLeft,
+        diamond,
         ditchLeftTurnLeft,
         ditchLeftTurnRight,
         ditchRightTurnLeft,
         ditchRightTurnRight,
         WAY,
         MONSTER,
-        TREE, };
+        LIMIT, };
 
     /**
      * Creates a new MotionlessElements object.
@@ -64,7 +64,7 @@ public abstract class MotionlessElementsFactory {
      * @return the motionless element
      */
     public static MotionlessElement createDitchLeft() {
-        return ditchLeft;
+        return diamond;
     }
 
     /**
@@ -127,7 +127,7 @@ public abstract class MotionlessElementsFactory {
      * @return the motionless element
      */
     public static MotionlessElement createTree() {
-        return TREE;
+        return LIMIT;
     }
 
     /**
