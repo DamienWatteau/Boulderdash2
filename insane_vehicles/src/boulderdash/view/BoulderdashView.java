@@ -74,12 +74,10 @@ public class BoulderdashView implements Runnable, KeyListener, IBoulderdashView 
 	public final void displayMessage(final String message) {
 		JOptionPane.showMessageDialog(null, message);
 	}
-
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see java.lang.Runnable#run()
-	 */
+/**
+ * create a window of name BoulderDash
+ * 	
+ */
 	@Override
 	public final void run() {
 		final BoardFrame boardFrame = new BoardFrame("BoulderDash");
@@ -88,6 +86,8 @@ public class BoulderdashView implements Runnable, KeyListener, IBoulderdashView 
 		boardFrame.setDisplayFrame(this.closeView);
 		boardFrame.setSize(this.closeView.width * squareSize, this.closeView.height * squareSize);
 		boardFrame.setLocationRelativeTo(null);
+
+		boardFrame.setBackground(null);
 		boardFrame.addKeyListener(this);
 		boardFrame.setFocusable(true);
 		boardFrame.setFocusTraversalKeysEnabled(false);
