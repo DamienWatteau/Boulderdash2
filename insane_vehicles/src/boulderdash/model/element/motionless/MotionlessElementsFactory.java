@@ -33,7 +33,7 @@ public abstract class MotionlessElementsFactory {
     private static final Way             WAY             = new Way();
 
     /** The Constant OBSTACLE. */
-    private static final Obstacle            OBSTACLE            = new Obstacle();
+    private static final Monster            MONSTER            = new Monster();
 
     /**
      * The motionless elements is an array of all possible MotionlessElement.
@@ -46,7 +46,7 @@ public abstract class MotionlessElementsFactory {
         ditchRightTurnLeft,
         ditchRightTurnRight,
         WAY,
-        OBSTACLE,
+        MONSTER,
         TREE, };
 
     /**
@@ -118,7 +118,7 @@ public abstract class MotionlessElementsFactory {
      * @return the motionless element
      */
     public static MotionlessElement createObstacle() {
-        return OBSTACLE;
+        return MONSTER;
     }
 
     /**

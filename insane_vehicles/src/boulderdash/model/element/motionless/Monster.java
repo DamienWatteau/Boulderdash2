@@ -9,15 +9,15 @@ import boulderdash.model.element.Sprite;
  * @author Jade
  * @version 0.2
  */
-class Obstacle extends MotionlessElement {
+class Monster extends MotionlessElement {
 
     /** The Constant SPRITE. */
-    private static final Sprite SPRITE = new Sprite('^', "Obstacle.jpg");
+    private static final Sprite SPRITE = new Sprite('^', "Monster.png");
 
     /**
      * Instantiates a new obstacle.
      */
-    Obstacle() {
+    Monster() {
         super(SPRITE, Permeability.BLOCKING);
     }
 }
