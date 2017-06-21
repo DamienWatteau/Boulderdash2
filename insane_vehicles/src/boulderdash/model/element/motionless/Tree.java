@@ -12,7 +12,7 @@ import boulderdash.model.element.Sprite;
 class Tree extends MotionlessElement {
 
     /** The Constant SPRITE. */
-    private static final Sprite SPRITE = new Sprite('^', "BlockX.png");
+    private static final Sprite SPRITE = new Sprite('X', "BlockX.png");
 
     /**
      * Instantiates a new tree.

@@ -1,33 +1,34 @@
 12
-31
-^^^^^^ ^^^^^
-^^[X    ]^^^
-^^[ X   ]^^^
-^^(X    ]^^^
-^(     }^^^^
-[     }^^^^^
-[    X]^^^^^
-[    X]^^^^^
-[     )^^^^^
-^{     )^^^^
-^^{X    )^^^
-^^^{     )^^
-^^^^{     ]^
-^^^^[X    ]^
-^^^^[  X  ]^
-^^^^(     ]^
-^^^(     }^^
-^^[    X}^^^
-^^[    X]^^^
-^^[     ]^^^
-^^(     )^^^
-^(  }{   )^^
-[  }^^{   ]^
-[  ]^^[ X ]^
-[ X]^^ [  ]^
-[  )^^(   ]^
-^{  )(   }^^
-^^{     }^^^
-^^[   X ]^^^
-^^[  X  ]^^^
-^^^^^^^^^^^^
+32
+XXXXXXXXXXXX
+XXXXX XXXXXX
+XX[O    ]XXX
+XX[ O   ]XXX
+XX(O    ]XXX
+X(     }XXXX
+[     }XXXXX
+[    O]XXXXX
+[    O]XXXXX
+[     )XXXXX
+X{     )XXXX
+XX{O    )XXX
+XXX{     )XX
+XXXX{     ]X
+XXXX[O    ]X
+XXXX[  O  ]X
+XXXX(     ]X
+XXX(     }XX
+XX[    O}XXX
+XX[    O]XXX
+XX[     ]XXX
+XX(     )XXX
+X(  }{   )XX
+[  }XX{   ]X
+[  ]XX[ O ]X
+[ O]XX [  ]X
+[  )XX(   ]X
+X{  )(   }XX
+XX{     }XXX
+XX[   O ]XXX
+XX[  O  ]XXX
+XXXXXXXXXXXX
