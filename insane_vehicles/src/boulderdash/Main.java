@@ -2,7 +2,6 @@ package boulderdash;
 
 import java.io.IOException;
 
-import BddDAO.AbstractDAO;
 import boulderdash.controller.BoulderdashController;
 import boulderdash.controller.IBoulderdashController;
 import boulderdash.model.BoulderdashModel;
@@ -35,14 +34,11 @@ public abstract class Main {
 	 *             the interrupted exception
 	 */
 	public static void main(final String[] args) throws IOException, InterruptedException {
-		AbstractDAO dao = new AbstractDAO();
+
 		final IBoulderdashModel model = new BoulderdashModel("road.txt", startX, startY);
 		final BoulderdashView view = new BoulderdashView(model.getRoad(), model.getMyVehicle());
 		final IBoulderdashController controller = new BoulderdashController(view, model);
 		view.setOrderPerformer(controller.getOrderPeformer());
-		
-		// affiche BDD		
-		dao.open();
 		
 		controller.play();
 	}
