@@ -12,7 +12,7 @@ import boulderdash.model.element.Sprite;
 class Obstacle extends MotionlessElement {
 
     /** The Constant SPRITE. */
-    private static final Sprite SPRITE = new Sprite('O', "Obstacle.jpg");
+    private static final Sprite SPRITE = new Sprite('^', "Obstacle.jpg");
 
     /**
      * Instantiates a new obstacle.
