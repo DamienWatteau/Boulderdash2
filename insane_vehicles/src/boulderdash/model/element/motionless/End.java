@@ -12,7 +12,7 @@ import boulderdash.model.element.Sprite;
 class End extends MotionlessElement {
 
     /** The Constant SPRITE. */
-    private static final Sprite SPRITE = new Sprite('(', "Door.png");
+    private static final Sprite SPRITE = new Sprite('D', "Door.png");
 
     /**
      * Instantiates a new ditch.

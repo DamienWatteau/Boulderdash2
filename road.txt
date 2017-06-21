@@ -4,7 +4,7 @@
 XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
 X                                 X
 X  ^         ^^^                  X
-X  ( [  {  ^                      X
+X  D [  {  ^                      X
 X          ^         X            X
 XXXXXXXXX            X            X
 X           ^        X          ^ X
