@@ -14,179 +14,171 @@ import boulderdash.view.IBoulderdashView;
  */
 public class BoulderdashController implements IBoulderdashController, IOrderPerformer {
 
-    /** The Constant speed. */
-    private static final int     speed = 200;
+	/** The Constant speed. */
+	private static final int speed = 200;
 
-    /** The view. */
-    private IBoulderdashView  view;
+	/** The view. */
+	private IBoulderdashView view;
 
-    /** The model. */
-    private IBoulderdashModel model;
+	/** The model. */
+	private IBoulderdashModel model;
 
-    /** The stack order. */
-    private UserOrder            stackOrder;
+	/** The stack order. */
+	private UserOrder stackOrder;
 
-    /**
-     * Instantiates a new insane vehicles controller.
-     *
-     * @param view
-     *            the view
-     * @param model
-     *            the model
-     */
-    public BoulderdashController(final IBoulderdashView view, final IBoulderdashModel model) {
-        this.setView(view);
-        this.setModel(model);
-        this.clearStackOrder();
-    }
-    
+	/**
+	 * Instantiates a new insane vehicles controller.
+	 *
+	 * @param view
+	 *            the view
+	 * @param model
+	 *            the model
+	 */
+	public BoulderdashController(final IBoulderdashView view, final IBoulderdashModel model) {
+		this.setView(view);
+		this.setModel(model);
+		this.clearStackOrder();
+	}
 
-    /*
-     * (non-Javadoc)
-     * @see fr.exia.insanevehicles.controller.IIinsaneVehiclesController#play()
-     */
-    @Override
-    public final void play() throws InterruptedException {
-        int score = 0;
-        while (this.getModel().getMyVehicle().isAlive()) {
-            Thread.sleep(speed);
-            switch (this.getStackOrder()) {
-            case RIGHT:
-                this.getModel().getMyVehicle().moveRight();
-                if (this.getModel().getMyVehicle().isBlocked() == true) {
-                    this.getModel().getMyVehicle().moveLeft();
-                }
-                break;
-            case LEFT:
-                this.getModel().getMyVehicle().moveLeft();
-                if (this.getModel().getMyVehicle().isBlocked() == true) {
-                    this.getModel().getMyVehicle().moveRight();
-                }
-                break;
-            case UP:
-                this.getModel().getMyVehicle().moveUp();
-                if (this.getModel().getMyVehicle().isBlocked() == true) {
-                    this.getModel().getMyVehicle().moveDown();
-                }
-                break;
-            case DOWN:
-                this.getModel().getMyVehicle().moveDown();
-                if (this.getModel().getMyVehicle().isBlocked() == true) {
-                    this.getModel().getMyVehicle().moveUp();
-                }
-                break;
-            case NOP:
-            default:
-                this.getModel().getMyVehicle().doNothing();
-                break;
-            }
-            this.clearStackOrder();
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see fr.exia.insanevehicles.controller.IIinsaneVehiclesController#play()
+	 */
+	@Override
+	public final void play() throws InterruptedException {
+		int gain = 0;
+		while (this.getModel().getMyVehicle().isAlive()) {
+			Thread.sleep(speed);
+			switch (this.getStackOrder()) {
+			case RIGHT:
+				this.getModel().getMyVehicle().moveRight();
+				break;
+			case LEFT:
+				this.getModel().getMyVehicle().moveLeft();
+				break;
+			case UP:
+				this.getModel().getMyVehicle().moveUp();
+				break;
+			case DOWN:
+				this.getModel().getMyVehicle().moveDown();
+				break;
+			case NOP:
+			default:
+				this.getModel().getMyVehicle().doNothing();
+				break;
+			}
+			this.clearStackOrder();
 
-//            this.getView().followMyVehicle();
 
-            if (this.getModel().getMyVehicle().isWon() == true) {
 
-                this.getView().displayMessage("YOU WIN");
-                System.exit(0);
+			if (this.getModel().getMyVehicle().isWon() == true) {
 
-            } else if (this.getModel().getMyVehicle().isLootable() == true) {
-                score++;
-                System.out.println(score);
+				this.getView().displayMessage("YOU WIN");
+				System.exit(0);
 
-            }
+			} else if (this.getModel().getMyVehicle().isLootable() == true) {
+				gain++;
+				System.out.println(gain);
+			}
 
-        }
-        this.getView().displayMessage("End of the Game");
-        System.exit(0);
+		}
+		this.getView().displayMessage("Game Over");
+		System.exit(0);
+	}
 
-    }
-    
-    /*
-     * (non-Javadoc)
-     * @see fr.exia.insanevehicles.controller.IOrderPerformed#orderPerform(fr.exia.insanevehicles.
-     * controller.UserOrder)
-     */
-    /*
-     * (non-Javadoc)
-     * @see fr.exia.insanevehicles.controller.IIinsaneVehiclesController#orderPerform(fr.exia.
-     * insanevehicles.controller.UserOrder)
-     */
-    @Override
-    public final void orderPerform(final UserOrder userOrder) throws IOException {
-        this.setStackOrder(userOrder);
-    }
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see
+	 * fr.exia.insanevehicles.controller.IOrderPerformed#orderPerform(fr.exia.
+	 * insanevehicles. controller.UserOrder)
+	 */
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see
+	 * fr.exia.insanevehicles.controller.IIinsaneVehiclesController#orderPerform
+	 * (fr.exia. insanevehicles.controller.UserOrder)
+	 */
+	@Override
+	public final void orderPerform(final UserOrder userOrder) throws IOException {
+		this.setStackOrder(userOrder);
+	}
 
-    /**
-     * Gets the view.
-     *
-     * @return the view
-     */
-    private IBoulderdashView getView() {
-        return this.view;
-    }
+	/**
+	 * Gets the view.
+	 *
+	 * @return the view
+	 */
+	private IBoulderdashView getView() {
+		return this.view;
+	}
 
-    /**
-     * Sets the view.
-     *
-     * @param view
-     *            the view to set
-     */
-    private void setView(final IBoulderdashView view) {
-        this.view = view;
-    }
+	/**
+	 * Sets the view.
+	 *
+	 * @param view
+	 *            the view to set
+	 */
+	private void setView(final IBoulderdashView view) {
+		this.view = view;
+	}
 
-    /**
-     * Gets the model.
-     *
-     * @return the model
-     */
-    private IBoulderdashModel getModel() {
-        return this.model;
-    }
+	/**
+	 * Gets the model.
+	 *
+	 * @return the model
+	 */
+	private IBoulderdashModel getModel() {
+		return this.model;
+	}
 
-    /**
-     * Sets the model.
-     *
-     * @param model
-     *            the model to set
-     */
-    private void setModel(final IBoulderdashModel model) {
-        this.model = model;
-    }
+	/**
+	 * Sets the model.
+	 *
+	 * @param model
+	 *            the model to set
+	 */
+	private void setModel(final IBoulderdashModel model) {
+		this.model = model;
+	}
 
-    /**
-     * Gets the stack order.
-     *
-     * @return the stack order
-     */
-    private UserOrder getStackOrder() {
-        return this.stackOrder;
-    }
+	/**
+	 * Gets the stack order.
+	 *
+	 * @return the stack order
+	 */
+	private UserOrder getStackOrder() {
+		return this.stackOrder;
+	}
 
-    /**
-     * Sets the stack order.
-     *
-     * @param stackOrder
-     *            the new stack order
-     */
-    private void setStackOrder(final UserOrder stackOrder) {
-        this.stackOrder = stackOrder;
-    }
+	/**
+	 * Sets the stack order.
+	 *
+	 * @param stackOrder
+	 *            the new stack order
+	 */
+	private void setStackOrder(final UserOrder stackOrder) {
+		this.stackOrder = stackOrder;
+	}
 
-    /**
-     * Clear stack order.
-     */
-    private void clearStackOrder() {
-        this.stackOrder = UserOrder.NOP;
-    }
+	/**
+	 * Clear stack order.
+	 */
+	private void clearStackOrder() {
+		this.stackOrder = UserOrder.NOP;
+	}
 
-    /*
-     * (non-Javadoc)
-     * @see fr.exia.insanevehicles.controller.IIinsaneVehiclesController#getOrderPeformer()
-     */
-    @Override
-    public IOrderPerformer getOrderPeformer() {
-        return this;
-    }
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see fr.exia.insanevehicles.controller.IIinsaneVehiclesController#
+	 * getOrderPeformer()
+	 */
+	@Override
+	public IOrderPerformer getOrderPeformer() {
+		return this;
+	}
 
 }
