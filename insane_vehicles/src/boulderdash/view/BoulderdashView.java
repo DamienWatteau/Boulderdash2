@@ -27,7 +27,7 @@ public class BoulderdashView implements Runnable, KeyListener, IBoulderdashView 
 	private static final int roadView = 20;
 
 	/** The Constant squareSize. */
-	private static final int squareSize = 34;
+	private static final int squareSize = 30;
 
 	/** The Constant closeView. */
 	private Rectangle closeView;
