@@ -14,17 +14,23 @@ import boulderdash.model.element.Sprite;
  */
 public class Rockford extends Mobile {
 
-    /** The Constant SPRITE. */
-    private static final Sprite sprite          = new Sprite('H', "MyVehicle.png");
+	/** The Constant SPRITE. */
+    private static final Sprite sprite          = new Sprite('H', "Rockford.png");
 
     /** The Constant spriteTurnLeft. */
-    private static final Sprite spriteTurnLeft  = new Sprite('H', "MyVehicleLeft.png");
+    private static final Sprite spriteTurnLeft  = new Sprite('H', "Left.png");
 
     /** The Constant spriteTurnRight. */
-    private static final Sprite spriteTurnRight = new Sprite('H', "MyVehicleRight.png");
+    private static final Sprite spriteTurnRight = new Sprite('H', "Right.png");
+    
+    /** The Constant spriteTurnRight. */
+    private static final Sprite spriteUp = new Sprite('H', "Up.png");
+    
+    /** The Constant spriteTurnRight. */
+    private static final Sprite spriteDown = new Sprite('H', "Down.png");
 
     /** The Constant spriteExplode. */
-    private static final Sprite spriteExplode   = new Sprite('H', "MyVehicleExplode.png");
+    private static final Sprite spriteExplode   = new Sprite('H', "Die.png");
 
     /**
      * Instantiates a new my vehicle.
@@ -43,6 +49,8 @@ public class Rockford extends Mobile {
         spriteTurnLeft.loadImage();
         spriteTurnRight.loadImage();
         spriteExplode.loadImage();
+        spriteUp.loadImage();
+        spriteDown.loadImage();
     }
 
     /*
@@ -63,6 +71,16 @@ public class Rockford extends Mobile {
     public final void moveRight() {
         super.moveRight();
         this.setSprite(spriteTurnRight);
+    }
+    
+    public final void moveUp() {
+        super.moveUp();
+        this.setSprite(spriteUp);
+    }
+    
+    public final void moveDown() {
+        super.moveDown();
+        this.setSprite(spriteDown);
     }
 
     /*
