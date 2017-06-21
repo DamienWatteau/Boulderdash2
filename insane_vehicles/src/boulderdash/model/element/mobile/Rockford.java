@@ -39,7 +39,7 @@ public class Rockford extends Mobile {
      *             Signals that an I/O exception has occurred.
      */
     public Rockford(final int x, final int y, final IRoad road) throws IOException {
-        super(x, y, sprite, road, Permeability.BLOCKING);
+        super(x, y, sprite, road, Permeability.PENETRABLE); // BLOCKING 
         spriteTurnLeft.loadImage();
         spriteTurnRight.loadImage();
         spriteExplode.loadImage();

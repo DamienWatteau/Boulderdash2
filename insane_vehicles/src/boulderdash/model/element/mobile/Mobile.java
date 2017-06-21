@@ -211,7 +211,7 @@ abstract class Mobile extends Element implements IMobile {
     public Boolean isCrashed() {
         return this.getRoad().getOnTheRoadXY(this.getX(), this.getY()).getPermeability() == Permeability.BLOCKING;
     }
-
+    
     /*
      * (non-Javadoc)
      * @see fr.exia.showboard.IPawn#getPosition()
