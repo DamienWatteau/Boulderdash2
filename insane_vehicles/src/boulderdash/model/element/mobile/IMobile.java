@@ -39,6 +39,8 @@ public interface IMobile extends IPawn, IElement {
      * Do nothing.
      */
     void doNothing();
+    
+    void die();
 
     /**
      * Gets the x.
@@ -69,6 +71,8 @@ public interface IMobile extends IPawn, IElement {
      * @return the boolean
      */
     Boolean isCrashed();
+    
+    Boolean isWon();
 
     /*
      * (non-Javadoc)

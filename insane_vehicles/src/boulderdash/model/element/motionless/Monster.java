@@ -18,6 +18,6 @@ class Monster extends MotionlessElement {
      * Instantiates a new obstacle.
      */
     Monster() {
-        super(SPRITE, Permeability.BLOCKING);
+        super(SPRITE, Permeability.KILLING);
     }
 }

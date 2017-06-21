@@ -18,6 +18,6 @@ class Diamond extends MotionlessElement {
      * Instantiates a new ditchLeft.
      */
     Diamond() {
-        super(SPRITE, Permeability.BLOCKING);
+        super(SPRITE, Permeability.LOOTABLE);
     }
 }

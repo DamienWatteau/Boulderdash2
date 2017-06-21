@@ -198,7 +198,7 @@ abstract class Mobile extends Element implements IMobile {
     /**
      * Dies.
      */
-    protected void die() {
+    public void die() {
         this.alive = false;
         this.setHasMoved();
     }
@@ -209,8 +209,21 @@ abstract class Mobile extends Element implements IMobile {
      */
     @Override
     public Boolean isCrashed() {
+        return this.getRoad().getOnTheRoadXY(this.getX(), this.getY()).getPermeability() == Permeability.KILLING;
+    }
+    
+    public Boolean isWon() {
+        return this.getRoad().getOnTheRoadXY(this.getX(), this.getY()).getPermeability() == Permeability.WIN;
+    }
+    
+    public Boolean isBlocked() {
         return this.getRoad().getOnTheRoadXY(this.getX(), this.getY()).getPermeability() == Permeability.BLOCKING;
     }
+    public Boolean isLootable() {
+        return this.getRoad().getOnTheRoadXY(this.getX(), this.getY()).getPermeability() == Permeability.LOOTABLE;
+    }
+    
+    
     
     /*
      * (non-Javadoc)

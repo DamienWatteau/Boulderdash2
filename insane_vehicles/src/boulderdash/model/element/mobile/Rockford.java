@@ -30,7 +30,7 @@ public class Rockford extends Mobile {
     private static final Sprite spriteDown = new Sprite('H', "Down.png");
 
     /** The Constant spriteExplode. */
-    private static final Sprite spriteExplode   = new Sprite('H', "Die.png");
+    private static final Sprite spriteDie   = new Sprite('H', "Die.png");
 
     /**
      * Instantiates a new my vehicle.
@@ -48,7 +48,7 @@ public class Rockford extends Mobile {
         super(x, y, sprite, road, Permeability.PENETRABLE); // BLOCKING 
         spriteTurnLeft.loadImage();
         spriteTurnRight.loadImage();
-        spriteExplode.loadImage();
+        spriteDie.loadImage();
         spriteUp.loadImage();
         spriteDown.loadImage();
     }
@@ -88,9 +88,9 @@ public class Rockford extends Mobile {
      * @see fr.exia.insanevehicles.model.element.mobile.Mobile#die()
      */
     @Override
-    protected final void die() {
+    public final void die() {
         super.die();
-        this.setSprite(spriteExplode);
+        this.setSprite(spriteDie);
     }
 
     /*

@@ -49,32 +49,40 @@ public class BoulderdashController implements IBoulderdashController, IOrderPerf
         while (this.getModel().getMyVehicle().isAlive()) {
             Thread.sleep(speed);
             switch (this.getStackOrder()) {
-                case RIGHT:
-                    this.getModel().getMyVehicle().moveRight();
-                    break;
-                case LEFT:
-                    this.getModel().getMyVehicle().moveLeft();
-                    break;
-                case UP:
-                	this.getModel().getMyVehicle().moveUp();
-                	break;
-                case DOWN:
-                    this.getModel().getMyVehicle().moveDown();
-                    break;
-                case NOP:
-                default:
-                    this.getModel().getMyVehicle().doNothing();
-                    break;
+            case RIGHT:
+                this.getModel().getMyVehicle().moveRight();
+                break;
+            case LEFT:
+                this.getModel().getMyVehicle().moveLeft();
+                break;
+            case UP:
+                this.getModel().getMyVehicle().moveUp();
+                break;
+            case DOWN:
+                this.getModel().getMyVehicle().moveDown();
+                break;
+            case NOP:
+            default:
+                this.getModel().getMyVehicle().doNothing();
+                break;
             }
             this.clearStackOrder();
-//            if (this.getModel().getMyVehicle().isAlive()) {
-////                this.getModel().getMyVehicle().moveDown();
-//            }
-            this.getView().followMyVehicle();
-        }
-        this.getView().displayMessage("CRASH !!!!!!!!!.");
-    }
 
+            this.getView().followMyVehicle();
+
+            if (this.getModel().getMyVehicle().isWon() == true) {
+
+                this.getView().displayMessage("YOU WIN");
+                System.exit(0);
+
+            } else {
+            }
+
+        }
+        this.getView().displayMessage("End of the Game");
+        System.exit(0);
+    }
+    
     /*
      * (non-Javadoc)
      * @see fr.exia.insanevehicles.controller.IOrderPerformed#orderPerform(fr.exia.insanevehicles.

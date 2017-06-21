@@ -12,12 +12,12 @@ import boulderdash.model.element.Sprite;
 class DitchLeftTurnLeft extends MotionlessElement {
 
     /** The Constant SPRITE. */
-    private static final Sprite SPRITE = new Sprite('(', "DitchLeftTurnLeft.jpg");
+    private static final Sprite SPRITE = new Sprite('(', "Door.png");
 
     /**
      * Instantiates a new ditch.
      */
     DitchLeftTurnLeft() {
-        super(SPRITE, Permeability.BLOCKING);
+        super(SPRITE, Permeability.WIN);
     }
 }

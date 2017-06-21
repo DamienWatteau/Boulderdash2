@@ -13,5 +13,9 @@ public enum Permeability {
     /** The penetrable. */
     WIN,
     
+    KILLING,
+    
+    LOOTABLE,
+    
     PENETRABLE;
 }
