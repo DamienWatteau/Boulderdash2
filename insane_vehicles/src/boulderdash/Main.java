@@ -2,6 +2,7 @@ package boulderdash;
 
 import java.io.IOException;
 
+import BddDAO.AbstractDAO;
 import boulderdash.controller.BoulderdashController;
 import boulderdash.controller.IBoulderdashController;
 import boulderdash.model.BoulderdashModel;
@@ -16,28 +17,32 @@ import boulderdash.view.BoulderdashView;
  */
 public abstract class Main {
 
-    /** The Constant startX. */
-    private static final int startX = 5;
+	/** The Constant startX. */
+	private static final int startX = 5;
 
-    /** The Constant startY. */
-    private static final int startY = 0;
+	/** The Constant startY. */
+	private static final int startY = 0;
 
-    /**
-     * The main method.
-     *
-     * @param args
-     *            the arguments
-     * @throws IOException
-     *             Signals that an I/O exception has occurred.
-     * @throws InterruptedException
-     *             the interrupted exception
-     */
-    public static void main(final String[] args) throws IOException, InterruptedException {
-        final IBoulderdashModel model = new BoulderdashModel("road.txt", startX, startY);
-        final BoulderdashView view = new BoulderdashView(model.getRoad(), model.getMyVehicle());
-        final IBoulderdashController controller = new BoulderdashController(view, model);
-        view.setOrderPerformer(controller.getOrderPeformer());
-
-        controller.play();
-    }
+	/**
+	 * The main method.
+	 *
+	 * @param args
+	 *            the arguments
+	 * @throws IOException
+	 *             Signals that an I/O exception has occurred.
+	 * @throws InterruptedException
+	 *             the interrupted exception
+	 */
+	public static void main(final String[] args) throws IOException, InterruptedException {
+		AbstractDAO dao = new AbstractDAO();
+		final IBoulderdashModel model = new BoulderdashModel("road.txt", startX, startY);
+		final BoulderdashView view = new BoulderdashView(model.getRoad(), model.getMyVehicle());
+		final IBoulderdashController controller = new BoulderdashController(view, model);
+		view.setOrderPerformer(controller.getOrderPeformer());
+		
+		// affiche BDD		
+		dao.open();
+		
+		controller.play();
+	}
 }
