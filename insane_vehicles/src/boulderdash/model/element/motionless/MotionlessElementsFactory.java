@@ -15,10 +15,10 @@ public abstract class MotionlessElementsFactory {
     private static final Diamond           diamond           = new Diamond();
 
     /** The Constant ditchLeftTurnLeft. */
-    private static final DitchLeftTurnLeft   ditchLeftTurnLeft   = new DitchLeftTurnLeft();
+    private static final End   end   = new End();
 
     /** The Constant ditchLeftTurnRight. */
-    private static final DitchLeftTurnRight  ditchLeftTurnRight  = new DitchLeftTurnRight();
+    private static final Rock rock = new Rock();
 
     /** The Constant ditchRightTurnLeft. */
     private static final DitchRightTurnLeft  ditchRightTurnLeft  = new DitchRightTurnLeft();
@@ -41,8 +41,8 @@ public abstract class MotionlessElementsFactory {
     private static MotionlessElement[]       motionlessElements  = {
         ditchRight,
         diamond,
-        ditchLeftTurnLeft,
-        ditchLeftTurnRight,
+        end,
+        rock,
         ditchRightTurnLeft,
         ditchRightTurnRight,
         WAY,
@@ -73,7 +73,7 @@ public abstract class MotionlessElementsFactory {
      * @return the motionless element
      */
     public static MotionlessElement createDitchLeftTurnLeft() {
-        return ditchLeftTurnLeft;
+        return end;
     }
 
     /**
@@ -82,7 +82,7 @@ public abstract class MotionlessElementsFactory {
      * @return the motionless element
      */
     public static MotionlessElement createDitchLeftTurnRight() {
-        return ditchLeftTurnRight;
+        return rock;
     }
 
     /**

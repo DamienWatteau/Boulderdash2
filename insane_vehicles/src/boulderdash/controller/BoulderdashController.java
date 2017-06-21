@@ -39,6 +39,7 @@ public class BoulderdashController implements IBoulderdashController, IOrderPerf
         this.setModel(model);
         this.clearStackOrder();
     }
+    
 
     /*
      * (non-Javadoc)
@@ -46,6 +47,7 @@ public class BoulderdashController implements IBoulderdashController, IOrderPerf
      */
     @Override
     public final void play() throws InterruptedException {
+    	int gain = 0;
         while (this.getModel().getMyVehicle().isAlive()) {
             Thread.sleep(speed);
             switch (this.getStackOrder()) {
@@ -69,13 +71,15 @@ public class BoulderdashController implements IBoulderdashController, IOrderPerf
             this.clearStackOrder();
 
             this.getView().followMyVehicle();
-
+            
             if (this.getModel().getMyVehicle().isWon() == true) {
 
                 this.getView().displayMessage("YOU WIN");
                 System.exit(0);
 
-            } else {
+            } else if (this.getModel().getMyVehicle().isLootable() == true) {
+            	gain++;
+            	System.out.println(gain);
             }
 
         }
