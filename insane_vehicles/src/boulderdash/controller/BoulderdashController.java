@@ -15,7 +15,7 @@ import boulderdash.view.IBoulderdashView;
 public class BoulderdashController implements IBoulderdashController, IOrderPerformer {
 
     /** The Constant speed. */
-    private static final int     speed = 300;
+    private static final int     speed = 200;
 
     /** The view. */
     private IBoulderdashView  view;
