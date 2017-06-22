@@ -1,6 +1,5 @@
 35
-21
-                                   
+20
 XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
 X                                 X
 X  ^         ^^^                  X

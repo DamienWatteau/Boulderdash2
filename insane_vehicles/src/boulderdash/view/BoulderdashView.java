@@ -203,7 +203,7 @@ public class BoulderdashView implements Runnable, KeyListener, IBoulderdashView 
 	 */
 	@Override
 	public final void followMyVehicle() {
-		this.getCloseView().y = this.getMyVehicle().getY() - 1;
+		this.getCloseView().y = this.getMyVehicle().getY() - 3;
 	}
 
 	/**

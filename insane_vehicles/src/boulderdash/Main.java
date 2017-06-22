@@ -17,10 +17,10 @@ import boulderdash.view.BoulderdashView;
 public abstract class Main {
 
     /** The Constant startX. */
-    private static final int startX = 1;
+    private static final int startX = 8;
 
 	/** The Constant startX. */
-	private static final int startY = 2;
+	private static final int startY = 3;
 
 
 	/**
