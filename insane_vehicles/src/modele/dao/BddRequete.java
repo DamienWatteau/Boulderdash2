@@ -17,9 +17,6 @@ public class BddRequete {
 
 	    ResultSet result = state.executeQuery("SELECT * FROM players");
 	    
-	    //On récupère les MetaData
-	    ResultSetMetaData resultMeta = result.getMetaData();
-	    
 	    int ID = 0;
 	    String nomBDD = " ";
 	    int nbrcolumn = 0;
