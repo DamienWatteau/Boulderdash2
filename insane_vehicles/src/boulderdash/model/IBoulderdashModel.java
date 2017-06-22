@@ -20,8 +20,8 @@ public interface IBoulderdashModel {
     /**
      * Gets the my vehicle.
      *
-     * @return the myVehicle
+     * @return the Rockford
      */
-    IMobile getMyVehicle();
+    IMobile getRockford();
 
 }

@@ -36,7 +36,7 @@ public abstract class Main {
 	public static void main(final String[] args) throws IOException, InterruptedException {
 
 		final IBoulderdashModel model = new BoulderdashModel("map.txt", startX, startY);
-		final BoulderdashView view = new BoulderdashView(model.getMap(), model.getMyVehicle());
+		final BoulderdashView view = new BoulderdashView(model.getMap(), model.getRockford());
 		final IBoulderdashController controller = new BoulderdashController(view, model);
 		view.setOrderPerformer(controller.getOrderPeformer());
 		

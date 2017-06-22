@@ -36,7 +36,7 @@ public class BoulderdashView implements Runnable, KeyListener, IBoulderdashView 
 	private IMap map;
 
 	/** My vehicle. */
-	private IMobile myVehicle;
+	private IMobile rockford;
 
 	/** The view. */
 	private int view;
@@ -49,17 +49,17 @@ public class BoulderdashView implements Runnable, KeyListener, IBoulderdashView 
 	 *
 	 * @param map
 	 *            the map
-	 * @param myVehicle
+	 * @param rockford
 	 *            the my vehicle
 	 * @throws IOException
 	 *             Signals that an I/O exception has occurred.
 	 */
-	public BoulderdashView(final IMap Map, final IMobile myVehicle) throws IOException {
+	public BoulderdashView(final IMap Map, final IMobile rockford) throws IOException {
 		this.setView(mapView);
 		this.setMap(map);
-		this.setMyVehicle(myVehicle);
-		this.getMyVehicle().getSprite().loadImage();
-		this.setCloseView(new Rectangle(0, this.getMyVehicle().getY(), this.getMap().getWidth(), mapView));
+		this.setRockford(rockford);
+		this.getRockford().getSprite().loadImage();
+		this.setCloseView(new Rectangle(0, this.getRockford().getY(), this.getMap().getWidth(), mapView));
 		SwingUtilities.invokeLater(this);
 	}
 
@@ -97,10 +97,10 @@ public class BoulderdashView implements Runnable, KeyListener, IBoulderdashView 
 				boardFrame.addSquare(this.map.getOnTheMapXY(x, y), x, y);
 			}
 		}
-		boardFrame.addPawn(this.getMyVehicle());
+		boardFrame.addPawn(this.getRockford());
 
 		this.getMap().getObservable().addObserver(boardFrame.getObserver());
-		this.followMyVehicle();
+		this.followRockford();
 
 		boardFrame.setVisible(true);
 		
@@ -117,8 +117,8 @@ public class BoulderdashView implements Runnable, KeyListener, IBoulderdashView 
 		int y = yStart % this.getMap().getHeight();
 		for (int view = 0; view < this.getView(); view++) {
 			for (int x = 0; x < this.getMap().getWidth(); x++) {
-				if ((x == this.getMyVehicle().getX()) && (y == yStart)) {
-					System.out.print(this.getMyVehicle().getSprite().getConsoleImage());
+				if ((x == this.getRockford().getX()) && (y == yStart)) {
+					System.out.print(this.getRockford().getSprite().getConsoleImage());
 				} else {
 					System.out.print(this.getMap().getOnTheMapXY(x, y).getSprite().getConsoleImage());
 				}
@@ -194,11 +194,11 @@ public class BoulderdashView implements Runnable, KeyListener, IBoulderdashView 
 	/*
 	 * (non-Javadoc)
 	 * 
-	 * @see fr.exia.insanevehicles.view.IInsaneVehiclesView#followMyvehicle()
+	 * @see fr.exia.insanevehicles.view.IInsaneVehiclesView#followRockford()
 	 */
 	@Override
-	public final void followMyVehicle() {
-		this.getCloseView().y = this.getMyVehicle().getY() - 1;
+	public final void followRockford() {
+		this.getCloseView().y = this.getRockford().getY() - 1;
 	}
 
 	/**
@@ -232,18 +232,18 @@ public class BoulderdashView implements Runnable, KeyListener, IBoulderdashView 
 	 *
 	 * @return my vehicle
 	 */
-	private IMobile getMyVehicle() {
-		return this.myVehicle;
+	private IMobile getRockford() {
+		return this.rockford;
 	}
 
 	/**
 	 * Sets my vehicle.
 	 *
-	 * @param myVehicle
+	 * @param rockford
 	 *            my new vehicle
 	 */
-	private void setMyVehicle(final IMobile myVehicle) {
-		this.myVehicle = myVehicle;
+	private void setRockford(final IMobile rockford) {
+		this.rockford = rockford;
 	}
 
 	/**

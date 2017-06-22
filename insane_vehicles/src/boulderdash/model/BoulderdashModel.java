@@ -11,27 +11,27 @@ import boulderdash.model.element.mobile.Rockford;
 public class BoulderdashModel implements IBoulderdashModel {
 
     /** The map. */
-    private IMap   map;
+    private IMap map;
 
     /** The my vehicle. */
-    private IMobile myVehicle;
+    private IMobile rockford;
 
     /**
      * Instantiates a new insane vehicles model.
      *
      * @param fileName
      *            the file name
-     * @param myVehicleStartX
+     * @param rockfordStartX
      *            the my vehicle start X
-     * @param myVehicleStartY
+     * @param rockfordStartY
      *            the my vehicle start Y
      * @throws IOException
      *             Signals that an I/O exception has occurred.
      */
-    public BoulderdashModel(final String fileName, final int myVehicleStartX, final int myVehicleStartY)
+    public BoulderdashModel(final String fileName, final int rockfordStartX, final int rockfordStartY)
             throws IOException {
         this.setMap(new Map(fileName));
-        this.setMyVehicle(new Rockford(myVehicleStartX, myVehicleStartY, this.getMap()));
+        this.setRockford(new Rockford(rockfordStartX, rockfordStartY, this.getMap()));
     }
 
     /* (non-Javadoc)
@@ -53,21 +53,21 @@ public class BoulderdashModel implements IBoulderdashModel {
     }
 
     /* (non-Javadoc)
-     * @see fr.exia.insanevehicles.model.IInsaneVehiclesModel#getMyVehicle()
+     * @see fr.exia.insanevehicles.model.IInsaneVehiclesModel#getrockford()
      */
     @Override
-    public final IMobile getMyVehicle() {
-        return this.myVehicle;
+    public final IMobile getRockford() {
+        return this.rockford;
     }
 
     /**
      * Sets the my vehicle.
      *
-     * @param myVehicle
-     *            the myVehicle to set
+     * @param rockford
+     *            the rockford to set
      */
-    private void setMyVehicle(final IMobile myVehicle) {
-        this.myVehicle = myVehicle;
+    private void setRockford(final IMobile rockford) {
+        this.rockford = rockford;
     }
 
 }

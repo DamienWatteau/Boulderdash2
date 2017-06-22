@@ -48,36 +48,36 @@ public class BoulderdashController implements IBoulderdashController, IOrderPerf
 	@Override
 	public final void play() throws InterruptedException {
 		int gain = 0;
-		while (this.getModel().getMyVehicle().isAlive()) {
+		while (this.getModel().getRockford().isAlive()) {
 			Thread.sleep(speed);
 			switch (this.getStackOrder()) {
 			case RIGHT:
-				this.getModel().getMyVehicle().moveRight();
+				this.getModel().getRockford().moveRight();
 				break;
 			case LEFT:
-				this.getModel().getMyVehicle().moveLeft();
+				this.getModel().getRockford().moveLeft();
 				break;
 			case UP:
-				this.getModel().getMyVehicle().moveUp();
+				this.getModel().getRockford().moveUp();
 				break;
 			case DOWN:
-				this.getModel().getMyVehicle().moveDown();
+				this.getModel().getRockford().moveDown();
 				break;
 			case NOP:
 			default:
-				this.getModel().getMyVehicle().doNothing();
+				this.getModel().getRockford().doNothing();
 				break;
 			}
 			this.clearStackOrder();
 
 
 
-			if (this.getModel().getMyVehicle().isWon() == true) {
+			if (this.getModel().getRockford().isWon() == true) {
 
 				this.getView().displayMessage("YOU WIN");
 				System.exit(0);
 
-			} else if (this.getModel().getMyVehicle().isLootable() == true) {
+			} else if (this.getModel().getRockford().isLootable() == true) {
 				gain++;
 				System.out.println(gain);
 			}
