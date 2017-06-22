@@ -7,6 +7,7 @@ import boulderdash.controller.IBoulderdashController;
 import boulderdash.model.BoulderdashModel;
 import boulderdash.model.IBoulderdashModel;
 import boulderdash.view.BoulderdashView;
+import boulderdash.view.Menu;
 
 /**
  * <h1>The InsaneVehicles Class.</h1>
@@ -34,6 +35,17 @@ public abstract class Main {
 	 *             the interrupted exception
 	 */
 	public static void main(final String[] args) throws IOException, InterruptedException {
+		
+		Menu menu = new Menu();
+//  	   	BddRequete requete = new BddRequete();
+//  	   	requete.user(menu.MenuPseudo());
+		menu.menuPseudo();
+  	   	menu.menuLevel();
+  	   
+//  		JFrame fen = new JFrame();
+//  	   
+//  		BddRequete requete2 = new BddRequete();
+//  		requete2.selectTable();	
 
 		final IBoulderdashModel model = new BoulderdashModel("road.txt", startX, startY);
 		final BoulderdashView view = new BoulderdashView(model.getRoad(), model.getMyVehicle());

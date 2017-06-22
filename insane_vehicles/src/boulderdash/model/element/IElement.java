@@ -33,5 +33,7 @@ public interface IElement extends ISquare {
      */
     @Override
     Image getImage();
+    
+    void setSprite(final Sprite sprite);
 
 }

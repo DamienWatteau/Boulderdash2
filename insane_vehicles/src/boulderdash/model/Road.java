@@ -124,7 +124,7 @@ class Road extends Observable implements IRoad {
      * @param y
      *            the y
      */
-    private void setOnTheRoadXY(final IElement element, final int x, final int y) {
+    public void setOnTheRoadXY(final IElement element, final int x, final int y) {
         this.onTheRoad[x][y] = element;
     }
 

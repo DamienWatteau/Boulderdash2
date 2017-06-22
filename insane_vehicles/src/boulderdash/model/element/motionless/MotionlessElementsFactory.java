@@ -48,6 +48,10 @@ public abstract class MotionlessElementsFactory {
         WAY,
         MONSTER,
         LIMIT, };
+    
+    public static Diamond getDiamond(){
+    	return diamond;
+    }
 
     /**
      * Creates a new MotionlessElements object.

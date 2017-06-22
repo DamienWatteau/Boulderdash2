@@ -18,6 +18,6 @@ class Way extends MotionlessElement {
      * Instantiates a new macadam.
      */
     Way() {
-        super(SPRITE, Permeability.PENETRABLE);
+        super(SPRITE, Permeability.DISAPPEAR);
     }
 }

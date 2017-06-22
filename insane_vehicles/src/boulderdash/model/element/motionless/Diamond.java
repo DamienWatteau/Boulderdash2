@@ -9,7 +9,7 @@ import boulderdash.model.element.Sprite;
  * @author Jade
  * @version 0.2
  */
-class Diamond extends MotionlessElement {
+public class Diamond extends MotionlessElement {
 
     /** The Constant SPRITE. */
     private static final Sprite SPRITE = new Sprite('[', "Diamond.png");
@@ -17,7 +17,7 @@ class Diamond extends MotionlessElement {
     /**
      * Instantiates a new ditchLeft.
      */
-    Diamond() {
+    public Diamond() {
         super(SPRITE, Permeability.LOOTABLE);
     }
 }

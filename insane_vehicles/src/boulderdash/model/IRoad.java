@@ -36,7 +36,7 @@ public interface IRoad {
      * @return the on the road XY
      */
     IElement getOnTheRoadXY(int x, int y);
-
+    void setOnTheRoadXY(final IElement element, final int x, final int y);
     /**
      * Sets the mobile has changed.
      */

@@ -4,8 +4,11 @@ import java.awt.Point;
 
 import boulderdash.model.IRoad;
 import boulderdash.model.element.Element;
+import boulderdash.model.element.IElement;
 import boulderdash.model.element.Permeability;
 import boulderdash.model.element.Sprite;
+import boulderdash.model.element.motionless.Diamond;
+import boulderdash.model.element.motionless.MotionlessElementsFactory;
 import fr.exia.showboard.IBoard;
 
 /**
@@ -94,6 +97,16 @@ abstract class Mobile extends Element implements IMobile {
     public void moveDown() {
         this.setY(this.getY() + 1);
         this.setHasMoved();
+        
+        if(this.getRoad().getOnTheRoadXY(this.getX(), this.getY()).getPermeability()==Permeability.DISAPPEAR){
+//        	this.getRoad().getOnTheRoadXY(this.getX(), this.getY()).setSprite(MotionlessElementsFactory.getDiamond().getSprite());
+        	
+        	 IElement audessus = this.getRoad().getOnTheRoadXY(this.getX(),this.getY());
+//             audessus = new Diamond();
+             audessus.setSprite(MotionlessElementsFactory.getDiamond().getSprite());
+             
+        }
+        
     }
 
     /*
@@ -221,6 +234,9 @@ abstract class Mobile extends Element implements IMobile {
     }
     public Boolean isLootable() {
         return this.getRoad().getOnTheRoadXY(this.getX(), this.getY()).getPermeability() == Permeability.LOOTABLE;
+    }
+    public Boolean isDesappear() {
+        return this.getRoad().getOnTheRoadXY(this.getX(), this.getY()).getPermeability() == Permeability.DISAPPEAR;
     }
     
     

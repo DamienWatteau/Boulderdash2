@@ -4,6 +4,9 @@ import java.io.IOException;
 
 import boulderdash.model.IBoulderdashModel;
 import boulderdash.view.IBoulderdashView;
+import boulderdash.model.element.IElement;
+import boulderdash.model.element.mobile.*;
+import boulderdash.model.element.motionless.MotionlessElementsFactory;
 
 /**
  * <h1>The Class InsaneVehiclesController.</h1>
@@ -94,9 +97,14 @@ public class BoulderdashController implements IBoulderdashController, IOrderPerf
                 System.out.println(score);
 
             }
+            
+//            if (this.getModel().getMyVehicle().isDesappear() == true){
+//            	IElement test = this.get
+//            	setOnTheRoadXY(,this.getModel().getMyVehicle().getX(),this.getModel().getMyVehicle().getY());
+//            }
 
         }
-        this.getView().displayMessage("End of the Game");
+        this.getView().displayMessage("GAME OVER");
         System.exit(0);
 
     }

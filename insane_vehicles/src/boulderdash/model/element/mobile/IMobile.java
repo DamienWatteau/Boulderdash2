@@ -77,6 +77,8 @@ public interface IMobile extends IPawn, IElement {
     Boolean isLootable();
     
     Boolean isBlocked();
+    
+    Boolean isDesappear();
 
 
     /*
