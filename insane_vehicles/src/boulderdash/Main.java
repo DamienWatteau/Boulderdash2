@@ -1,7 +1,6 @@
 package boulderdash;
 
 import java.io.IOException;
-
 import boulderdash.controller.BoulderdashController;
 import boulderdash.controller.IBoulderdashController;
 import boulderdash.model.BoulderdashModel;
