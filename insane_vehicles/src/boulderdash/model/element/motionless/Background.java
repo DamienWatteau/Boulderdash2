@@ -9,7 +9,7 @@ import boulderdash.model.element.Sprite;
  * @author Jade
  * @version 0.2
  */
-class Way extends MotionlessElement {
+class Background extends MotionlessElement {
 
     /** The Constant SPRITE. */
     private static final Sprite SPRITE = new Sprite(' ', "Background.png");
@@ -17,7 +17,7 @@ class Way extends MotionlessElement {
     /**
      * Instantiates a new macadam.
      */
-    Way() {
+    Background() {
         super(SPRITE, Permeability.PENETRABLE);
     }
 }

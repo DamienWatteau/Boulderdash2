@@ -27,19 +27,19 @@ public abstract class MotionlessElementsFactory {
 	private static final DitchRightTurnRight ditchRightTurnRight = new DitchRightTurnRight();
 
 	/** The Constant TREE. */
-	private static final Limit LIMIT = new Limit();
+	private static final Limit limit = new Limit();
 
 	/** The Constant MACADAM. */
-	private static final Way WAY = new Way();
+	private static final Background background = new Background();
 
 	/** The Constant OBSTACLE. */
-	private static final Monster MONSTER = new Monster();
+	private static final Monster monster = new Monster();
 
 	/**
 	 * The motionless elements is an array of all possible MotionlessElement.
 	 */
 	private static MotionlessElement[] motionlessElements = { ditchRight, diamond, end, rock, destructibleBlock,
-			ditchRightTurnRight, WAY, MONSTER, LIMIT, };
+			ditchRightTurnRight, background, monster, limit, };
 
 	/**
 	 * Creates a new MotionlessElements object.
@@ -55,7 +55,7 @@ public abstract class MotionlessElementsFactory {
 	 *
 	 * @return the motionless element
 	 */
-	public static MotionlessElement createDitchLeft() {
+	public static MotionlessElement createDiamond() {
 		return diamond;
 	}
 
@@ -64,7 +64,7 @@ public abstract class MotionlessElementsFactory {
 	 *
 	 * @return the motionless element
 	 */
-	public static MotionlessElement createDitchLeftTurnLeft() {
+	public static MotionlessElement createEnd() {
 		return end;
 	}
 
@@ -73,7 +73,7 @@ public abstract class MotionlessElementsFactory {
 	 *
 	 * @return the motionless element
 	 */
-	public static MotionlessElement createDitchLeftTurnRight() {
+	public static MotionlessElement createRock() {
 		return rock;
 	}
 
@@ -82,7 +82,7 @@ public abstract class MotionlessElementsFactory {
 	 *
 	 * @return the motionless element
 	 */
-	public static MotionlessElement createDitchRightTurnLeft() {
+	public static MotionlessElement createDestructibleBlock() {
 		return destructibleBlock;
 	}
 
@@ -100,8 +100,8 @@ public abstract class MotionlessElementsFactory {
 	 *
 	 * @return the motionless element
 	 */
-	public static MotionlessElement createMacadam() {
-		return WAY;
+	public static MotionlessElement createBackground() {
+		return background;
 	}
 
 	/**
@@ -109,8 +109,8 @@ public abstract class MotionlessElementsFactory {
 	 *
 	 * @return the motionless element
 	 */
-	public static MotionlessElement createObstacle() {
-		return MONSTER;
+	public static MotionlessElement createMonster() {
+		return monster;
 	}
 
 	/**
@@ -118,8 +118,8 @@ public abstract class MotionlessElementsFactory {
 	 *
 	 * @return the motionless element
 	 */
-	public static MotionlessElement createTree() {
-		return LIMIT;
+	public static MotionlessElement createLimit() {
+		return limit;
 	}
 
 	/**
@@ -135,6 +135,6 @@ public abstract class MotionlessElementsFactory {
 				return motionlessElement;
 			}
 		}
-		return WAY;
+		return background;
 	}
 }
