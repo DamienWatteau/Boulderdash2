@@ -52,9 +52,9 @@ class Road extends Observable implements IRoad {
         String line;
         int y = 0;
         line = buffer.readLine();
-        this.setWidth(Integer.parseInt(line));
+        this.setWidth(40);
         line = buffer.readLine();
-        this.setHeight(Integer.parseInt(line));
+        this.setHeight(22);
         this.onTheRoad = new IElement[this.getWidth()][this.getHeight()];
         line = buffer.readLine();
         while (line != null) {

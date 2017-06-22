@@ -59,45 +59,45 @@ public class BddRequete {
 				ResultSet rst; // L'objet ResultSet stocke les résultats de Statement (soit les données de la BDD)
 				
 				st = BoulderDashBDDConnector.getInstance().createStatement();
-				rst = st.executeQuery("SELECT (map_code) From maps WHERE map_name = '"+level+"'"); // Execution 
+				rst = st.executeQuery("SELECT * From maps WHERE map_name = '"+level+"'"); // Execution 
 				String texte;
-				char finale = ' ';
-				int i = 0;
-				int j = 0;
+				int line;
+				int column;
+				
+				char niveau = ' ';
 				int s = 0;
+				int longueur = 0;
+				
 					rst.next();
 					texte=(rst.getString("map_code"));
-				
-					while(finale != '|'){
+					line = (rst.getInt("map_line"));
+					column = (rst.getInt("map_column"));
+					
+
+					System.out.println(line);
+					
+					for (int j = 0; j < column; j++){
 						
-						while(finale != ';' && finale != '|'){
-							finale = texte.charAt(s); //
-							s++;
-							if(finale != ';' && finale != '|'){
-								//chars[j]=finale;
-								chars[i][j]=finale;
-								//System.out.print(chars[j]);
-								System.out.print(chars[i][j]);
-								j++;
-							}
-						}
-						
-						System.out.println(" ");
-						
-						if(finale == ';'){
-							j=0;
-							i++;
-							finale = texte.charAt(s);
-							s++;
-							chars[i][j]=finale;
-							System.out.print(chars[i][j]);
+						for(int i = 0; i < line; i++){
 							
+							niveau = texte.charAt(s);
+							chars[j][i]=niveau;
+							s++;
 						}
+						s+=2;
 					}
-				
+					
+					for(char sousTab[] : chars)
+					{
+					  for(char str : sousTab)
+					  {     
+					    System.out.print(str);
+					  }
+					  System.out.println(" ");
+					}
+
 			}catch (Exception ex){
 				ex.printStackTrace();
 			}
-		
 	}
 }
