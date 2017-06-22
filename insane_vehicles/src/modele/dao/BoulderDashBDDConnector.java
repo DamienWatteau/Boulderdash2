@@ -18,7 +18,8 @@ public class BoulderDashBDDConnector {
 	  public static Connection getInstance(){
 		  if(connect == null){
 			  try {
-				  String JDBC_DRIVER = "com.mysql.cj.jdbc.Driver";  
+				  //String JDBC_DRIVER = "com.mysql.cj.jdbc.Driver";
+				  String JDBC_DRIVER = "com.mysql.jdbc.Driver";
 					
 				//Register JDBC driver
 	            try {

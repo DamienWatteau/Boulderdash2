@@ -54,7 +54,7 @@ public class BddRequete {
 		  }
 	}
 	
-	public char[][] selectTable(){
+	public void selectTable(String level){
 		char[][]chars = new char[20][35];
 		try{
 				
@@ -62,22 +62,19 @@ public class BddRequete {
 				ResultSet rst; // L'objet ResultSet stocke les résultats de Statement (soit les données de la BDD)
 				
 				st = BoulderDashBDDConnector.getInstance().createStatement();
-				rst = st.executeQuery("SELECT (map_code) From maps"); // Execution 
-				String test;
+				rst = st.executeQuery("SELECT (map_code) From maps WHERE map_name = '"+level+"'"); // Execution 
+				String texte;
 				char finale = ' ';
-				//char[][]chars = new char[3][4];
-				//char[][]chars = new char[20][35];
 				int i = 0;
 				int j = 0;
 				int s = 0;
-				//test = "TEST;TEST;TEST|";
 					rst.next();
-					test=(rst.getString("map_code"));
+					texte=(rst.getString("map_code"));
 				
 					while(finale != '|'){
 						
 						while(finale != ';' && finale != '|'){
-							finale = test.charAt(s);
+							finale = texte.charAt(s); //
 							s++;
 							if(finale != ';' && finale != '|'){
 								//chars[j]=finale;
@@ -93,7 +90,7 @@ public class BddRequete {
 						if(finale == ';'){
 							j=0;
 							i++;
-							finale = test.charAt(s);
+							finale = texte.charAt(s);
 							s++;
 							chars[i][j]=finale;
 							System.out.print(chars[i][j]);
@@ -104,7 +101,6 @@ public class BddRequete {
 			}catch (Exception ex){
 				ex.printStackTrace();
 			}
-		return chars;
 		
 	}
 }

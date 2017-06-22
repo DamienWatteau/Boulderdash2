@@ -14,7 +14,7 @@ public class Menu {
 		
 		@SuppressWarnings("static-access")
 		public String menuLevel(){
-			String[] levelname = {"Level 1 ", "Level 2 ", "Level 3", "Level 4", "Level 5"};
+			String[] levelname = {"Level 1", "Level 2", "Level 3", "Level 4", "Level 5"};
 		    JOptionPane jop2 = new JOptionPane();
 		    String level = (String)jop2.showInputDialog(null, 
 		      "Veuillez indiquer un niveau !",

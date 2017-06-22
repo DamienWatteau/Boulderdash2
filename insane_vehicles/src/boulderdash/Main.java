@@ -8,6 +8,7 @@ import boulderdash.model.BoulderdashModel;
 import boulderdash.model.IBoulderdashModel;
 import boulderdash.view.BoulderdashView;
 import boulderdash.view.Menu;
+import modele.dao.BddRequete;
 
 /**
  * <h1>The InsaneVehicles Class.</h1>
@@ -36,11 +37,11 @@ public abstract class Main {
 	 */
 	public static void main(final String[] args) throws IOException, InterruptedException {
 		
-		Menu menu = new Menu();
-//  	   	BddRequete requete = new BddRequete();
-//  	   	requete.user(menu.MenuPseudo());
-		menu.menuPseudo();
-  	   	menu.menuLevel();
+//		Menu menu = new Menu();
+//		BddRequete requete = new BddRequete();
+////		requete.user(menu.menuPseudo());
+//  	   	requete.selectTable(menu.menuLevel());
+  	   	
   	   
 //  		JFrame fen = new JFrame();
 //  	   

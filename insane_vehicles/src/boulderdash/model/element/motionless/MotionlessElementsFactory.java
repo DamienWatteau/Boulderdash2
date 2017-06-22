@@ -9,7 +9,7 @@ package boulderdash.model.element.motionless;
 public abstract class MotionlessElementsFactory {
 
     /** The Constant ditchRight. */
-    private static final DitchRight          ditchRight          = new DitchRight();
+    private static final Golem          golem          = new Golem();
 
     /** The Constant ditchLeft. */
     private static final Diamond           diamond           = new Diamond();
@@ -21,10 +21,10 @@ public abstract class MotionlessElementsFactory {
     private static final Rock rock = new Rock();
 
     /** The Constant ditchRightTurnLeft. */
-    private static final DitchRightTurnLeft  ditchRightTurnLeft  = new DitchRightTurnLeft();
+    private static final Monster2  monster2  = new Monster2();
 
     /** The Constant ditchRightTurnRight. */
-    private static final DitchRightTurnRight ditchRightTurnRight = new DitchRightTurnRight();
+    private static final Dig dig = new Dig();
 
     /** The Constant TREE. */
     private static final Limit                LIMIT                = new Limit();
@@ -39,12 +39,12 @@ public abstract class MotionlessElementsFactory {
      * The motionless elements is an array of all possible MotionlessElement.
      */
     private static MotionlessElement[]       motionlessElements  = {
-        ditchRight,
+        golem,
         diamond,
         end,
         rock,
-        ditchRightTurnLeft,
-        ditchRightTurnRight,
+        monster2,
+        dig,
         WAY,
         MONSTER,
         LIMIT, };
@@ -58,8 +58,8 @@ public abstract class MotionlessElementsFactory {
      *
      * @return the motionless element
      */
-    public static MotionlessElement createDitchRight() {
-        return ditchRight;
+    public static MotionlessElement createGolem() {
+        return golem;
     }
 
     /**
@@ -67,7 +67,7 @@ public abstract class MotionlessElementsFactory {
      *
      * @return the motionless element
      */
-    public static MotionlessElement createDitchLeft() {
+    public static MotionlessElement createDiamond() {
         return diamond;
     }
 
@@ -76,7 +76,7 @@ public abstract class MotionlessElementsFactory {
      *
      * @return the motionless element
      */
-    public static MotionlessElement createDitchLeftTurnLeft() {
+    public static MotionlessElement createEnd() {
         return end;
     }
 
@@ -85,7 +85,7 @@ public abstract class MotionlessElementsFactory {
      *
      * @return the motionless element
      */
-    public static MotionlessElement createDitchLeftTurnRight() {
+    public static MotionlessElement createRock() {
         return rock;
     }
 
@@ -94,8 +94,8 @@ public abstract class MotionlessElementsFactory {
      *
      * @return the motionless element
      */
-    public static MotionlessElement createDitchRightTurnLeft() {
-        return ditchRightTurnLeft;
+    public static MotionlessElement createMonster2() {
+        return monster2;
     }
 
     /**
@@ -103,8 +103,8 @@ public abstract class MotionlessElementsFactory {
      *
      * @return the motionless element
      */
-    public static MotionlessElement createDitchRightTurnRight() {
-        return ditchRightTurnRight;
+    public static MotionlessElement createDig() {
+        return dig;
     }
 
     /**
@@ -112,7 +112,7 @@ public abstract class MotionlessElementsFactory {
      *
      * @return the motionless element
      */
-    public static MotionlessElement createMacadam() {
+    public static MotionlessElement createWay() {
         return WAY;
     }
 
@@ -121,7 +121,7 @@ public abstract class MotionlessElementsFactory {
      *
      * @return the motionless element
      */
-    public static MotionlessElement createObstacle() {
+    public static MotionlessElement createMonster() {
         return MONSTER;
     }
 
@@ -130,7 +130,7 @@ public abstract class MotionlessElementsFactory {
      *
      * @return the motionless element
      */
-    public static MotionlessElement createTree() {
+    public static MotionlessElement createLimit() {
         return LIMIT;
     }
 

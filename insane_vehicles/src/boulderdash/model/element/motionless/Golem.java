@@ -9,15 +9,15 @@ import boulderdash.model.element.Sprite;
  * @author Jade
  * @version 0.2
  */
-class DitchRight extends MotionlessElement {
+class Golem extends MotionlessElement {
 
     /** The Constant SPRITE. */
-    private static final Sprite SPRITE = new Sprite(']', "DitchRight.jpg");
+    private static final Sprite SPRITE = new Sprite(']', "golem.png");
 
     /**
      * Instantiates a new ditchRight.
      */
-    DitchRight() {
+    Golem() {
         super(SPRITE, Permeability.BLOCKING);
     }
 }
