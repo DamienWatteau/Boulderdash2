@@ -11,11 +11,11 @@ import boulderdash.model.element.mobile.IMobile;
 public interface IBoulderdashModel {
 
 	/**
-	 * Gets the road.
+	 * Gets the map.
 	 *
-	 * @return the road
+	 * @return the map
 	 */
-	IRoad getRoad();
+	IMap getMap();
 
 	/**
 	 * Gets the my vehicle.

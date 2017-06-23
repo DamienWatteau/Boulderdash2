@@ -100,7 +100,7 @@ public class BoulderdashController implements IBoulderdashController, IOrderPerf
 
 			// if (this.getModel().getMyVehicle().isDesappear() == true){
 			// IElement test = this.get
-			// setOnTheRoadXY(,this.getModel().getMyVehicle().getX(),this.getModel().getMyVehicle().getY());
+			// setOnTheMapXY(,this.getModel().getMyVehicle().getX(),this.getModel().getMyVehicle().getY());
 			// }
 
 		}

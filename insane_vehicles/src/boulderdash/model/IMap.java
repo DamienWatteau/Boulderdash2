@@ -5,12 +5,12 @@ import java.util.Observable;
 import boulderdash.model.element.IElement;
 
 /**
- * <h1>The Interface IRoad.</h1>
+ * <h1>The Interface IMap.</h1>
  *
  * @author Jade
  * @version 0.1
  */
-public interface IRoad {
+public interface IMap {
 
 	/**
 	 * Gets the width.
@@ -27,17 +27,17 @@ public interface IRoad {
 	int getHeight();
 
 	/**
-	 * Gets the on the road XY.
+	 * Gets the on the map XY.
 	 *
 	 * @param x
 	 *            the x
 	 * @param y
 	 *            the y
-	 * @return the on the road XY
+	 * @return the on the map XY
 	 */
-	IElement getOnTheRoadXY(int x, int y);
+	IElement getOnTheMapXY(int x, int y);
 
-	void setOnTheRoadXY(final IElement element, final int x, final int y);
+	void setOnTheMapXY(final IElement element, final int x, final int y);
 
 	/**
 	 * Sets the mobile has changed.

@@ -10,12 +10,12 @@ import boulderdash.model.element.IElement;
 import boulderdash.model.element.motionless.MotionlessElementsFactory;
 
 /**
- * <h1>The Road Class.</h1>
+ * <h1>The Map Class.</h1>
  *
  * @author Jade
  * @version 0.3
  */
-class Road extends Observable implements IRoad {
+class Map extends Observable implements IMap {
 
 	/** The width. */
 	private int width;
@@ -23,18 +23,18 @@ class Road extends Observable implements IRoad {
 	/** The height. */
 	private int height;
 
-	/** The on the road. */
-	private IElement[][] onTheRoad;
+	/** The on the map. */
+	private IElement[][] onTheMap;
 
 	/**
-	 * Instantiates a new road with the content of the file fileName.
+	 * Instantiates a new map with the content of the file fileName.
 	 *
 	 * @param fileName
-	 *            the file name where the map of the road is
+	 *            the file name where the map of the map is
 	 * @throws IOException
 	 *             Signals that an I/O exception has occurred.
 	 */
-	Road(final String fileName) throws IOException {
+	Map(final String fileName) throws IOException {
 		super();
 		this.loadFile(fileName);
 	}
@@ -55,11 +55,11 @@ class Road extends Observable implements IRoad {
 		this.setWidth(40);
 		line = buffer.readLine();
 		this.setHeight(22);
-		this.onTheRoad = new IElement[this.getWidth()][this.getHeight()];
+		this.onTheMap = new IElement[this.getWidth()][this.getHeight()];
 		line = buffer.readLine();
 		while (line != null) {
 			for (int x = 0; x < line.toCharArray().length; x++) {
-				this.setOnTheRoadXY(MotionlessElementsFactory.getFromFileSymbol(line.toCharArray()[x]), x, y);
+				this.setOnTheMapXY(MotionlessElementsFactory.getFromFileSymbol(line.toCharArray()[x]), x, y);
 			}
 			line = buffer.readLine();
 			y++;
@@ -70,7 +70,7 @@ class Road extends Observable implements IRoad {
 	/*
 	 * (non-Javadoc)
 	 * 
-	 * @see fr.exia.insanevehicles.model.IRoad#getWidth()
+	 * @see fr.exia.insanevehicles.model.IMap#getWidth()
 	 */
 	@Override
 	public final int getWidth() {
@@ -90,7 +90,7 @@ class Road extends Observable implements IRoad {
 	/*
 	 * (non-Javadoc)
 	 * 
-	 * @see fr.exia.insanevehicles.model.IRoad#getHeight()
+	 * @see fr.exia.insanevehicles.model.IMap#getHeight()
 	 */
 	@Override
 	public final int getHeight() {
@@ -110,15 +110,15 @@ class Road extends Observable implements IRoad {
 	/*
 	 * (non-Javadoc)
 	 * 
-	 * @see fr.exia.insanevehicles.model.IRoad#getOnTheRoadXY(int, int)
+	 * @see fr.exia.insanevehicles.model.IMap#getOnTheMapXY(int, int)
 	 */
 	@Override
-	public final IElement getOnTheRoadXY(final int x, final int y) {
-		return this.onTheRoad[x][y];
+	public final IElement getOnTheMapXY(final int x, final int y) {
+		return this.onTheMap[x][y];
 	}
 
 	/**
-	 * Sets the on the road XY.
+	 * Sets the on the Map XY.
 	 *
 	 * @param element
 	 *            the element
@@ -127,14 +127,14 @@ class Road extends Observable implements IRoad {
 	 * @param y
 	 *            the y
 	 */
-	public void setOnTheRoadXY(final IElement element, final int x, final int y) {
-		this.onTheRoad[x][y] = element;
+	public void setOnTheMapXY(final IElement element, final int x, final int y) {
+		this.onTheMap[x][y] = element;
 	}
 
 	/*
 	 * (non-Javadoc)
 	 * 
-	 * @see fr.exia.insanevehicles.model.IRoad#setMobileHasChanged()
+	 * @see fr.exia.insanevehicles.model.IMap#setMobileHasChanged()
 	 */
 	@Override
 	public final void setMobileHasChanged() {
@@ -145,7 +145,7 @@ class Road extends Observable implements IRoad {
 	/*
 	 * (non-Javadoc)
 	 * 
-	 * @see fr.exia.insanevehicles.model.IRoad#getObservable()
+	 * @see fr.exia.insanevehicles.model.IMap#getObservable()
 	 */
 	@Override
 	public Observable getObservable() {

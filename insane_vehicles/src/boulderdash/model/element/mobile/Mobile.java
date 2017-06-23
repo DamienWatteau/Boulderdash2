@@ -2,12 +2,11 @@ package boulderdash.model.element.mobile;
 
 import java.awt.Point;
 
-import boulderdash.model.IRoad;
+import boulderdash.model.IMap;
 import boulderdash.model.element.Element;
 import boulderdash.model.element.IElement;
 import boulderdash.model.element.Permeability;
 import boulderdash.model.element.Sprite;
-import boulderdash.model.element.motionless.Diamond;
 import boulderdash.model.element.motionless.MotionlessElementsFactory;
 import fr.exia.showboard.IBoard;
 
@@ -27,8 +26,8 @@ abstract class Mobile extends Element implements IMobile {
 	/** The alive. */
 	private Boolean alive = true;
 
-	/** The road. */
-	private IRoad road;
+	/** The map. */
+	private IMap map;
 
 	/** The board. */
 	private IBoard board;
@@ -38,14 +37,14 @@ abstract class Mobile extends Element implements IMobile {
 	 *
 	 * @param sprite
 	 *            the sprite
-	 * @param road
-	 *            the road
+	 * @param map
+	 *            the map
 	 * @param permeability
 	 *            the permeability
 	 */
-	Mobile(final Sprite sprite, final IRoad road, final Permeability permeability) {
+	Mobile(final Sprite sprite, final IMap map, final Permeability permeability) {
 		super(sprite, permeability);
-		this.setRoad(road);
+		this.setMap(map);
 		this.position = new Point();
 	}
 
@@ -58,13 +57,13 @@ abstract class Mobile extends Element implements IMobile {
 	 *            the y
 	 * @param sprite
 	 *            the sprite
-	 * @param road
-	 *            the road
+	 * @param map
+	 *            the map
 	 * @param permeability
 	 *            the permeability
 	 */
-	Mobile(final int x, final int y, final Sprite sprite, final IRoad road, final Permeability permeability) {
-		this(sprite, road, permeability);
+	Mobile(final int x, final int y, final Sprite sprite, final IMap map, final Permeability permeability) {
+		this(sprite, map, permeability);
 		this.setX(x);
 		this.setY(y);
 	}
@@ -101,11 +100,11 @@ abstract class Mobile extends Element implements IMobile {
 		this.setY(this.getY() + 1);
 		this.setHasMoved();
 
-		if (this.getRoad().getOnTheRoadXY(this.getX(), this.getY()).getPermeability() == Permeability.DISAPPEAR) {
-			// this.getRoad().getOnTheRoadXY(this.getX(),
+		if (this.getMap().getOnTheMapXY(this.getX(), this.getY()).getPermeability() == Permeability.DISAPPEAR) {
+			// this.getMap().getOnTheMapXY(this.getX(),
 			// this.getY()).setSprite(MotionlessElementsFactory.getDiamond().getSprite());
 
-			IElement audessus = this.getRoad().getOnTheRoadXY(this.getX(), this.getY());
+			IElement audessus = this.getMap().getOnTheMapXY(this.getX(), this.getY());
 			// audessus = new Diamond();
 			audessus.setSprite(MotionlessElementsFactory.getDiamond().getSprite());
 
@@ -138,7 +137,7 @@ abstract class Mobile extends Element implements IMobile {
 	 * Sets the has moved.
 	 */
 	private void setHasMoved() {
-		this.getRoad().setMobileHasChanged();
+		this.getMap().setMobileHasChanged();
 	}
 
 	/*
@@ -178,33 +177,33 @@ abstract class Mobile extends Element implements IMobile {
 	 * Sets the y.
 	 *
 	 * @param y
-	 *            the new y, as the road is an infinite loop, there's a modulo
-	 *            based on the road height.
+	 *            the new y, as the map is an infinite loop, there's a modulo
+	 *            based on the map height.
 	 */
 	public final void setY(final int y) {
-		this.getPosition().y = (y + this.getRoad().getHeight()) % this.getRoad().getHeight();
+		this.getPosition().y = (y + this.getMap().getHeight()) % this.getMap().getHeight();
 		if (this.isCrashed()) {
 			this.die();
 		}
 	}
 
 	/**
-	 * Gets the road.
+	 * Gets the map.
 	 *
-	 * @return the road
+	 * @return the map
 	 */
-	public IRoad getRoad() {
-		return this.road;
+	public IMap getMap() {
+		return this.map;
 	}
 
 	/**
-	 * Sets the road.
+	 * Sets the map.
 	 *
-	 * @param road
-	 *            the new road
+	 * @param map
+	 *            the new map
 	 */
-	private void setRoad(final IRoad road) {
-		this.road = road;
+	private void setMap(final IMap map) {
+		this.map = map;
 	}
 
 	/*
@@ -232,23 +231,23 @@ abstract class Mobile extends Element implements IMobile {
 	 */
 	@Override
 	public Boolean isCrashed() {
-		return this.getRoad().getOnTheRoadXY(this.getX(), this.getY()).getPermeability() == Permeability.KILLING;
+		return this.getMap().getOnTheMapXY(this.getX(), this.getY()).getPermeability() == Permeability.KILLING;
 	}
 
 	public Boolean isWon() {
-		return this.getRoad().getOnTheRoadXY(this.getX(), this.getY()).getPermeability() == Permeability.WIN;
+		return this.getMap().getOnTheMapXY(this.getX(), this.getY()).getPermeability() == Permeability.WIN;
 	}
 
 	public Boolean isBlocked() {
-		return this.getRoad().getOnTheRoadXY(this.getX(), this.getY()).getPermeability() == Permeability.BLOCKING;
+		return this.getMap().getOnTheMapXY(this.getX(), this.getY()).getPermeability() == Permeability.BLOCKING;
 	}
 
 	public Boolean isLootable() {
-		return this.getRoad().getOnTheRoadXY(this.getX(), this.getY()).getPermeability() == Permeability.LOOTABLE;
+		return this.getMap().getOnTheMapXY(this.getX(), this.getY()).getPermeability() == Permeability.LOOTABLE;
 	}
 
 	public Boolean isDesappear() {
-		return this.getRoad().getOnTheRoadXY(this.getX(), this.getY()).getPermeability() == Permeability.DISAPPEAR;
+		return this.getMap().getOnTheMapXY(this.getX(), this.getY()).getPermeability() == Permeability.DISAPPEAR;
 	}
 
 	/*
