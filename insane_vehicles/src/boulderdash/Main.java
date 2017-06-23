@@ -20,12 +20,11 @@ import modele.dao.BddRequete;
  */
 public abstract class Main {
 
-    /** The Constant startX. */
-    private static final int startX = 2;
+	/** The Constant startX. */
+	private static final int startX = 2;
 
 	/** The Constant startX. */
 	private static final int startY = 2;
-
 
 	/**
 	 * The main method.
@@ -38,19 +37,17 @@ public abstract class Main {
 	 *             the interrupted exception
 	 */
 	public static void main(final String[] args) throws IOException, InterruptedException {
-		
-		
-//		Menu menu = new Menu();
-//		BddRequete requete = new BddRequete();
-//		requete.user(menu.menuPseudo());
-//  	   	requete.selectTable(menu.menuLevel());
-  	   	
-  	   	
+
+		// Menu menu = new Menu();
+		// BddRequete requete = new BddRequete();
+		// requete.user(menu.menuPseudo());
+		// requete.selectTable(menu.menuLevel());
+
 		final IBoulderdashModel model = new BoulderdashModel("road.txt", startX, startY);
 		final BoulderdashView view = new BoulderdashView(model.getRoad(), model.getMyVehicle());
 		final IBoulderdashController controller = new BoulderdashController(view, model);
 		view.setOrderPerformer(controller.getOrderPeformer());
-		
+
 		controller.play();
 	}
 }
