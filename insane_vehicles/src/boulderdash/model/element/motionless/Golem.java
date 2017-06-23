@@ -11,13 +11,13 @@ import boulderdash.model.element.Sprite;
  */
 class Golem extends MotionlessElement {
 
-    /** The Constant SPRITE. */
-    private static final Sprite SPRITE = new Sprite(']', "golem.png");
+	/** The Constant SPRITE. */
+	private static final Sprite SPRITE = new Sprite(']', "golem.png");
 
-    /**
-     * Instantiates a new ditchRight.
-     */
-    Golem() {
-        super(SPRITE, Permeability.BLOCKING);
-    }
+	/**
+	 * Instantiates a new ditchRight.
+	 */
+	Golem() {
+		super(SPRITE, Permeability.BLOCKING);
+	}
 }

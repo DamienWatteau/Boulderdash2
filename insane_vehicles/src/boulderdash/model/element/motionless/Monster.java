@@ -11,13 +11,13 @@ import boulderdash.model.element.Sprite;
  */
 class Monster extends MotionlessElement {
 
-    /** The Constant SPRITE. */
-    private static final Sprite SPRITE = new Sprite('^', "Monster.png");
+	/** The Constant SPRITE. */
+	private static final Sprite SPRITE = new Sprite('^', "Monster.png");
 
-    /**
-     * Instantiates a new obstacle.
-     */
-    Monster() {
-        super(SPRITE, Permeability.KILLING);
-    }
+	/**
+	 * Instantiates a new obstacle.
+	 */
+	Monster() {
+		super(SPRITE, Permeability.KILLING);
+	}
 }

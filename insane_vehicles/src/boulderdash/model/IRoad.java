@@ -12,40 +12,42 @@ import boulderdash.model.element.IElement;
  */
 public interface IRoad {
 
-    /**
-     * Gets the width.
-     *
-     * @return the width
-     */
-    int getWidth();
+	/**
+	 * Gets the width.
+	 *
+	 * @return the width
+	 */
+	int getWidth();
 
-    /**
-     * Gets the height.
-     *
-     * @return the height
-     */
-    int getHeight();
+	/**
+	 * Gets the height.
+	 *
+	 * @return the height
+	 */
+	int getHeight();
 
-    /**
-     * Gets the on the road XY.
-     *
-     * @param x
-     *            the x
-     * @param y
-     *            the y
-     * @return the on the road XY
-     */
-    IElement getOnTheRoadXY(int x, int y);
-    void setOnTheRoadXY(final IElement element, final int x, final int y);
-    /**
-     * Sets the mobile has changed.
-     */
-    void setMobileHasChanged();
+	/**
+	 * Gets the on the road XY.
+	 *
+	 * @param x
+	 *            the x
+	 * @param y
+	 *            the y
+	 * @return the on the road XY
+	 */
+	IElement getOnTheRoadXY(int x, int y);
 
-    /**
-     * Gets the observable.
-     *
-     * @return the observable
-     */
-    Observable getObservable();
+	void setOnTheRoadXY(final IElement element, final int x, final int y);
+
+	/**
+	 * Sets the mobile has changed.
+	 */
+	void setMobileHasChanged();
+
+	/**
+	 * Gets the observable.
+	 *
+	 * @return the observable
+	 */
+	Observable getObservable();
 }

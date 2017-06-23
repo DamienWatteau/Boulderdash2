@@ -11,13 +11,13 @@ import boulderdash.model.element.Sprite;
  */
 class Dig extends MotionlessElement {
 
-    /** The Constant SPRITE. */
-    private static final Sprite SPRITE = new Sprite(')', "Dig.png");
+	/** The Constant SPRITE. */
+	private static final Sprite SPRITE = new Sprite(')', "Dig.png");
 
-    /**
-     * Instantiates a new ditch.
-     */
-    Dig() {
-        super(SPRITE, Permeability.BLOCKING);
-    }
+	/**
+	 * Instantiates a new ditch.
+	 */
+	Dig() {
+		super(SPRITE, Permeability.BLOCKING);
+	}
 }

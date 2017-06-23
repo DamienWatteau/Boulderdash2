@@ -13,27 +13,28 @@ import fr.exia.showboard.ISquare;
  */
 public interface IElement extends ISquare {
 
-    /**
-     * Gets the sprite.
-     *
-     * @return the sprite
-     */
-    Sprite getSprite();
+	/**
+	 * Gets the sprite.
+	 *
+	 * @return the sprite
+	 */
+	Sprite getSprite();
 
-    /**
-     * Gets the permeability.
-     *
-     * @return the permeability
-     */
-    Permeability getPermeability();
+	/**
+	 * Gets the permeability.
+	 *
+	 * @return the permeability
+	 */
+	Permeability getPermeability();
 
-    /*
-     * (non-Javadoc)
-     * @see fr.exia.showboard.ISquare#getImage()
-     */
-    @Override
-    Image getImage();
-    
-    void setSprite(final Sprite sprite);
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see fr.exia.showboard.ISquare#getImage()
+	 */
+	@Override
+	Image getImage();
+
+	void setSprite(final Sprite sprite);
 
 }

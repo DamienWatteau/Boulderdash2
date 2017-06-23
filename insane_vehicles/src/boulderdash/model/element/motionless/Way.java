@@ -11,13 +11,13 @@ import boulderdash.model.element.Sprite;
  */
 class Way extends MotionlessElement {
 
-    /** The Constant SPRITE. */
-    private static final Sprite SPRITE = new Sprite(' ', "Background.png");
+	/** The Constant SPRITE. */
+	private static final Sprite SPRITE = new Sprite(' ', "Background.png");
 
-    /**
-     * Instantiates a new macadam.
-     */
-    Way() {
-        super(SPRITE, Permeability.DISAPPEAR);
-    }
+	/**
+	 * Instantiates a new macadam.
+	 */
+	Way() {
+		super(SPRITE, Permeability.DISAPPEAR);
+	}
 }

@@ -10,18 +10,18 @@ import boulderdash.model.element.mobile.IMobile;
  */
 public interface IBoulderdashModel {
 
-    /**
-     * Gets the road.
-     *
-     * @return the road
-     */
-    IRoad getRoad();
+	/**
+	 * Gets the road.
+	 *
+	 * @return the road
+	 */
+	IRoad getRoad();
 
-    /**
-     * Gets the my vehicle.
-     *
-     * @return the myVehicle
-     */
-    IMobile getMyVehicle();
+	/**
+	 * Gets the my vehicle.
+	 *
+	 * @return the myVehicle
+	 */
+	IMobile getMyVehicle();
 
 }

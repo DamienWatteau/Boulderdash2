@@ -11,13 +11,13 @@ import boulderdash.model.element.Sprite;
  */
 class Limit extends MotionlessElement {
 
-    /** The Constant SPRITE. */
-    private static final Sprite SPRITE = new Sprite('X', "LimitBlock.png");
+	/** The Constant SPRITE. */
+	private static final Sprite SPRITE = new Sprite('X', "LimitBlock.png");
 
-    /**
-     * Instantiates a new tree.
-     */
-    Limit() {
-        super(SPRITE, Permeability.BLOCKING);
-    }
+	/**
+	 * Instantiates a new tree.
+	 */
+	Limit() {
+		super(SPRITE, Permeability.BLOCKING);
+	}
 }

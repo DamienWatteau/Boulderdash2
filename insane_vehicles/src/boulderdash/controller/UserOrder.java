@@ -8,15 +8,15 @@ package boulderdash.controller;
  */
 public enum UserOrder {
 
-    /** The right. */
-    RIGHT,
+	/** The right. */
+	RIGHT,
 
-    /** The left. */
-    LEFT,
-    
-    DOWN,
-    
-    UP,
-    /** The nop. */
-    NOP;
+	/** The left. */
+	LEFT,
+
+	DOWN,
+
+	UP,
+	/** The nop. */
+	NOP;
 }

@@ -9,18 +9,18 @@ package boulderdash.controller;
  */
 public interface IBoulderdashController {
 
-    /**
-     * Play.
-     *
-     * @throws InterruptedException
-     *             the interrupted exception
-     */
-    void play() throws InterruptedException;
+	/**
+	 * Play.
+	 *
+	 * @throws InterruptedException
+	 *             the interrupted exception
+	 */
+	void play() throws InterruptedException;
 
-    /**
-     * Gets the order peformer.
-     *
-     * @return the order peformer
-     */
-    IOrderPerformer getOrderPeformer();
+	/**
+	 * Gets the order peformer.
+	 *
+	 * @return the order peformer
+	 */
+	IOrderPerformer getOrderPeformer();
 }

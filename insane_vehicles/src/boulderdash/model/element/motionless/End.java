@@ -11,13 +11,13 @@ import boulderdash.model.element.Sprite;
  */
 class End extends MotionlessElement {
 
-    /** The Constant SPRITE. */
-    private static final Sprite SPRITE = new Sprite('(', "Door.png");
+	/** The Constant SPRITE. */
+	private static final Sprite SPRITE = new Sprite('(', "Door.png");
 
-    /**
-     * Instantiates a new ditch.
-     */
-    End() {
-        super(SPRITE, Permeability.WIN);
-    }
+	/**
+	 * Instantiates a new ditch.
+	 */
+	End() {
+		super(SPRITE, Permeability.WIN);
+	}
 }

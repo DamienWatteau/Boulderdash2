@@ -11,13 +11,13 @@ import boulderdash.model.element.Sprite;
  */
 class Monster2 extends MotionlessElement {
 
-    /** The Constant SPRITE. */
-    private static final Sprite SPRITE = new Sprite('}', "poule.png");
+	/** The Constant SPRITE. */
+	private static final Sprite SPRITE = new Sprite('}', "poule.png");
 
-    /**
-     * Instantiates a new ditch.
-     */
-    Monster2() {
-        super(SPRITE, Permeability.BLOCKING);
-    }
+	/**
+	 * Instantiates a new ditch.
+	 */
+	Monster2() {
+		super(SPRITE, Permeability.BLOCKING);
+	}
 }
